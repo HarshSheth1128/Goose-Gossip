@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import MainPage from "./MainPage/MainPage.jsx";
+import MainPage from "./pages/MainPage/MainPage.jsx.js";
 
 function App() {
   return (
