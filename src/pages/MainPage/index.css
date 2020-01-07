@@ -1,0 +1,226 @@
+.Root {
+    background-color: #F8D869;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.CenterContentContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.RightContentContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainPageEntryButton{
+    font-family: 'IBM Plex Sans', sans-serif;
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #FF2B46;
+    color: white;
+    border: solid 1px #4F4F4F;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+}
+
+#gooseImage {
+    padding-right: 10px;
+    margin-bottom:50px;
+    height: 200px;
+    width: 552px;
+}
+
+#modalTitle {
+    font-family: 'IBM Plex Sans', sans-serif; 
+    font-size: 4rem;
+    margin: 20px;
+}
+
+#InfoText{
+    margin: 0px;
+    color: #7D7D7D;
+}
+
+#InfoText:hover {
+    margin-top: 5px;
+    text-decoration: underline;
+}
+
+#modalSplash {
+    position: absolute;
+    height: 85%;
+    width: 70%;
+    border-radius: 20px;
+    background-color: white;
+    border: solid 1px #C4C4C4;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#modalSplash p:not(#modalTitle) {
+    font-family: 'IBM Plex Sans', sans-serif; 
+    margin: 3px;
+    font-size: 1.4rem;
+    text-align: center;
+    display: absolute;
+    color: #7D7D7D;
+}
+
+@media only screen and (max-width: 768px) {
+    /* TABLETS */
+    .Root {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #InfoText{
+        font-size: 1.3rem;
+    }
+
+    .RightContentContainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #gooseImage {
+        padding-right: 10px;
+        margin-bottom:40px;
+        height: 150px;
+        width: 414px;
+    }
+
+    #modalTitle {
+        font-size: 2.5rem;
+        margin: 10px;
+    }
+
+    #modalSplash {
+        width: 85%;
+    }
+
+    #modalSplash p:not(#modalTitle) {
+        font-family: 'IBM Plex Sans', sans-serif; 
+        margin: 3px;
+        font-size: 1.1rem;
+        text-align: center;
+        display: absolute;
+    }
+   
+  }
+
+
+@media only screen and (max-width: 425px){
+    /* Mobile */
+    .MainPageEntryButton {
+        width: 200px;
+    }
+
+    #gooseImage {
+        padding-right: 10px;
+        margin-bottom:30px;
+        height: 100px;
+        width: 276px;
+    }
+
+    #modalSplash p:not(#modalTitle) {
+        font-family: 'IBM Plex Sans', sans-serif; 
+        margin: 3px;
+        font-size: 0.9rem;
+        text-align: center;
+        display: absolute;
+    }
+}
+
+
+
+.LogInSignUpButton {
+    font-family: 'IBM Plex Sans', sans-serif;
+    width: 130px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #FCD64F;
+    font-size: 1.1rem;
+    color: #7D7D7D;
+    border: solid 1px #C4C4C4;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    margin: 5px;
+}
+
+.LogInSignUpButton:hover {
+    background-color: rgb(224, 191, 69);  
+}
+
+
+
+
+.MainPageEntryButton:hover{
+    background-color: rgb(206, 35, 57);
+}
+
+.ButtonWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#modalFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+#modalSplash div:not(#modalStartDiv) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+
+
+
+
+#modalStartDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalStartDiv #glue {
+    flex-grow: 1;
+}
+
+#closeButton {
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    background-color: #FF2B46;
+    color: white;
+    border-radius: 10px;
+    align-self: flex-start;
+    margin-top:20px;
+}
+
+#closeButton:hover {
+    background-color: rgb(207, 35, 58);
+}
