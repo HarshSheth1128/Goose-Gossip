@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './MainPage.css'
-import Goose from '../../images/goose';
+import './index.css'
+import Goose from '../../images/goose.png';
 import Modal from '../../common/Modal';
 
 class MainPage extends Component {
