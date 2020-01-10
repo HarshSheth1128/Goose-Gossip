@@ -14,10 +14,54 @@
     justify-content: center;
 }
 
+#gooseImage {
+    -webkit-animation-name: centreFadeInAndDown; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    animation-name: centreFadeInAndDown;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.MainPageEntryButton {
+    animation-name: centreFadeIn;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    animation-duration: 2s;
+}
+
 .RightContentContainer {
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    animation-name: centreFadeIn;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
+
+@-webkit-keyframes centreFadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+@keyframes centreFadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@-webkit-keyframes centreFadeInAndDown {
+    from {transform: translateY(-15px);opacity: 0;}
+    to { opacity: 1;}
+  }
+  
+@keyframes centreFadeInAndDown {
+    from {transform: translateY(-15px); opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+
 
 .MainPageEntryButton{
     font-family: 'IBM Plex Sans', sans-serif;
@@ -47,10 +91,27 @@
 #InfoText{
     margin: 0px;
     color: #7D7D7D;
+    opacity: 0;
+    -webkit-animation-name: textFadeIn; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 1s;
+    animation-name: textFadeIn;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes textFadeIn {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+@keyframes textFadeIn {
+from {opacity: 0;}
+to {opacity: 1;}
 }
 
 #InfoText:hover {
-    margin-top: 5px;
     text-decoration: underline;
 }
 
@@ -142,8 +203,6 @@
     }
 }
 
-
-
 .LogInSignUpButton {
     font-family: 'IBM Plex Sans', sans-serif;
     width: 130px;
@@ -159,9 +218,29 @@
 
 .LogInSignUpButton:hover {
     background-color: rgb(224, 191, 69);  
+    animation-name: buttonMoveAround;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 
+@-webkit-keyframes buttonMoveAround {
+    from {
+            transform: rotate(0.004turn);
+        }
+    to {transform: translateX(-5px);
+        transform: rotate(-0.004turn);
+    transform:scale(1.1);}
+}
+    
+@keyframes buttonMoveAround {
+    from {
+        transform: rotate(0.005turn);
+        }
+    to {transform: translateX(-5px);
+        transform: rotate(-0.005turn);
+    transform: scale(1.1)}
+}
 
 
 .MainPageEntryButton:hover{

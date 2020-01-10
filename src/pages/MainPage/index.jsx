@@ -2,10 +2,32 @@ import React, { Component } from 'react';
 import './index.css'
 import Goose from '../../images/goose.png';
 import Modal from '../../common/Modal';
+import LogInSignUp from '../../common/LogInSignUp';
 
 class MainPage extends Component {
     state = {
-        showModal: false
+        showModal: false,
+        email: '',
+        username: '',
+        password: '',
+        entryVersion: -1
+    }
+
+    handleLogInSignUp = (buttonType) => {
+        if (buttonType === "LogIn") {
+            if (this.state.entryVersion !== 0) {
+                this.setState({ entryVersion: 0 });
+            } else {
+                this.setState({ entryVersion: -1 });
+            }
+        } else {
+            if (this.state.entryVersion === 1) {
+                this.setState({ entryVersion: -1 });
+            } else {
+                this.setState({ entryVersion: 1 });
+            }
+
+        }
     }
 
     render() {
@@ -17,13 +39,14 @@ class MainPage extends Component {
                     </div>
                     <div className="CenterContentContainer">
                         <img id="gooseImage" src={Goose} alt="goose" />
+                        <LogInSignUp formState={this.state.entryVersion} />
                         <div className="ButtonWrapper">
                             <button className="MainPageEntryButton"><b>Enter as Guest</b></button>
                         </div>
                     </div>
                     <div className="RightContentContainer">
-                        <button className="LogInSignUpButton"><b>Log In</b></button>
-                        <button className="LogInSignUpButton"><b>Sign Up</b></button>
+                        <button className="LogInSignUpButton" onClick={(e) => this.handleLogInSignUp("LogIn")}><b>{(this.state.entryVersion === 0) ? 'Guest ' : ''}Log In</b></button>
+                        <button className="LogInSignUpButton" onClick={(e) => this.handleLogInSignUp("SignUp")}><b>{(this.state.entryVersion === 1) ? 'Guest Log In' : 'Sign Up'}</b></button>
                     </div>
                 </div>
                 <Modal show={this.state.showModal} handleClose={() => { this.setState({ showModal: false }) }}>
