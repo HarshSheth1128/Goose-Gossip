@@ -1,0 +1,449 @@
+.Root {
+    background-color: #F8D869;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.CenterContentContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#gooseImage {
+    -webkit-animation-name: centreFadeInAndDown; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    animation-name: centreFadeInAndDown;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.RightContentContainer {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation-name: centreFadeIn;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.MainPageEntryButton{
+    font-family: 'IBM Plex Sans', sans-serif;
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #FF2B46;
+    color: white;
+    border: solid 1px #4F4F4F;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    /* animation-name: centreFadeIn;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    animation-duration: 2s; */
+    animation-name: mainButtonShrink;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.MainPageEntryButton:hover{
+    background-color: rgb(206, 35, 57);
+    animation-name: mainButtonGrow;
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+}
+
+.LogInSignUpButton {
+    font-family: 'IBM Plex Sans', sans-serif;
+    width: 130px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #FCD64F;
+    font-size: 1.1rem;
+    color: #7D7D7D;
+    border: solid 1px #C4C4C4;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    margin: 5px;
+    animation-name: mainButtonShrink;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.LogInSignUpButton:hover {
+    background-color: rgb(224, 191, 69);  
+    animation-name: mainButtonGrow;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes mainButtonGrow {
+    from {}
+    to {transform:scale(1.05);}
+}
+    
+@keyframes mainButtonGrow {
+    from {}
+    to {transform: scale(1.05)}
+}
+
+@-webkit-keyframes mainButtonShrink {
+    from {transform: scale(1.05);}
+    to {transform:scale(1.0);}
+}
+    
+@keyframes mainButtonShrink {
+    from {transform: scale(1.05);}
+    to {transform: scale(1.0)}
+}
+
+.ButtonWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    opacity: 0;
+    animation-name: centreFadeIn;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes centreFadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+@keyframes centreFadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@-webkit-keyframes centreFadeInAndDown {
+    from {transform: translateY(-15px);opacity: 0;}
+    to { opacity: 1;}
+  }
+  
+@keyframes centreFadeInAndDown {
+    from {transform: translateY(-15px); opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+#gooseImage {
+    padding-right: 10px;
+    margin-bottom:50px;
+    height: 200px;
+    width: 552px;
+}
+
+#modalTitle {
+    font-family: 'IBM Plex Sans', sans-serif; 
+    font-size: 2.0rem;
+    margin: 10px;
+    margin-left: 20px;
+    color: #4F4F4F;
+}
+
+#InfoText{
+    margin: 5px;
+    color: #7D7D7D;
+    transform: translateY(-25px);
+    -webkit-animation-name: textSlideIn;
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-delay: 1s; 
+    animation-name: textSlideIn;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes textSlideIn {
+    from {transform: translateY(-25px);}
+    to {transform: translateY(0px);}
+}
+
+@keyframes textSlideIn {
+    from {transform: translateY(-25px);}
+    to {transform: translateY(0px);}
+}
+
+#InfoText:hover {
+    text-decoration: underline;
+}
+
+#modalSplash {
+    position: absolute;
+    height: 85%;
+    width: 70%;
+    border-radius: 20px;
+    background-color: white;
+    /* border: solid 1px #4F4F4F; */
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    animation-name: showModal;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes showModal {
+    from {
+        transform: translateY(-1000px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes showModal {
+    from {
+        transform: translateY(-1000px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+
+#modalSplash p:not(#modalTitle) {
+    font-family: 'IBM Plex Sans', sans-serif; 
+    margin: 3px;
+    font-size: 1.2rem;
+    text-align: center;
+    display: absolute;
+    color: #7D7D7D;
+}
+
+@media only screen and (max-width: 768px) {
+    /* TABLETS */
+    .Root {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #InfoText{
+        font-size: 1.3rem;
+    }
+
+    .RightContentContainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #gooseImage {
+        padding-right: 10px;
+        margin-bottom:40px;
+        height: 150px;
+        width: 414px;
+    }
+
+    #modalTitle {
+        font-size: 2.0rem;
+        margin: 10px;
+    }
+
+    #modalSplash {
+        width: 85%;
+    }
+
+    #modalSplash p:not(#modalTitle) {
+        font-family: 'IBM Plex Sans', sans-serif; 
+        margin-bottom: 3px;
+        font-size: 1.0rem;
+        text-align: center;
+        display: absolute;
+    }
+   
+  }
+
+
+@media only screen and (max-width: 425px){
+    /* Mobile */
+    .MainPageEntryButton {
+        width: 200px;
+    }
+
+    #gooseImage {
+        padding-right: 10px;
+        margin-bottom:30px;
+        height: 100px;
+        width: 276px;
+    }
+
+    #modalTitle {
+        font-size: 2.0rem;
+        margin: 10px;
+    }
+
+    #modalSplash p:not(#modalTitle) {
+        font-family: 'IBM Plex Sans', sans-serif; 
+        margin: 3px;
+        font-size: 0.8rem;
+        text-align: center;
+        display: absolute;
+    }
+}
+
+
+
+
+
+
+@-webkit-keyframes buttonMoveAround {
+    from {
+            transform: rotate(0.005turn);
+        }
+    to {transform: translateX(-5px);
+        transform: rotate(-0.005turn);
+    transform:scale(1.1);}
+}
+    
+@keyframes buttonMoveAround {
+    from {
+        transform: rotate(0.005turn);
+        }
+    to {transform: translateX(-5px);
+        transform: rotate(-0.005turn);
+    transform: scale(1.1)}
+}
+
+
+
+
+
+
+#modalFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(125, 125, 125, 0.521);
+}
+
+
+
+#modalSplash div:not(#modalStartDiv) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+
+
+
+
+#modalStartDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    align-items: center;
+    background-color: #F8D869;
+    border-radius: 20px 20px 0px 0px;
+}
+
+#modalStartDiv #glue {
+    flex-grow: 1;
+}
+
+#closeButton {
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+    background-color: #FF2B46;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    animation-name: mainButtonShrink;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+#closeButton:hover {
+    background-color: rgb(207, 35, 58);
+    animation-name: mainButtonGrow;
+    animation-duration: 0.25s;
+    animation-fill-mode: forwards;
+}
+
+#input-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.input {
+    width: 300px;
+    border-radius: 10px;
+    color: #4F4F4F;
+    height: 40px;
+    border: none;
+    margin-bottom: 5px;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.8rem;
+    transform: rotateX(90deg);
+    transform: scaleY(0);
+    animation-name: fadeInput;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    z-index: 2;
+}
+
+.fail {
+    width: 300px;
+    border-radius: 10px;
+    color: #4F4F4F;
+    height: 40px;
+    border: none;
+    margin-bottom: 5px;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    border: solid 3px rgb(248, 161, 173);
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.8rem;
+    transform: rotateX(90deg);
+    transform: scaleY(0);
+    animation-name: fadeInput;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.failText {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: rgb(248, 161, 173);
+    margin-top: 10px;
+    padding: 5px;
+}
+
+@keyframes fadeInput {
+    from {}
+    to {transform: rotateX(0deg);
+        transform: scaleY(1);}
+}
+
+@media only screen and (max-width: 425px) {
+    .input{
+        width: 250px;
+    }
+}

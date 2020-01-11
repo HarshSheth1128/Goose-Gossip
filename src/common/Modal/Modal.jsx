@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css';
+import './Modal.css';
 
 const Modal = ({ show, children, handleClose }) => {
     const modalClassName = show ? "ModalRoot" : "display-none";
