@@ -1,4 +1,4 @@
-.CategoryRoot {
+.ButtonRoot {
     width: 168px;
     height: 111px;
     background-color:#c4c4c4;
@@ -11,7 +11,7 @@
     flex-direction: column;
 }
 
-.CategoryNameContainer {
+.ChatNameContainer {
     top: 0;
     right: 0;
     width: 100%;
@@ -21,7 +21,7 @@
     position: absolute;
 }
 
-.CategoryName {
+.ChatName {
     font-family: "IBM Plex Sans";
     font-weight: bolder;
     justify-content: center;
@@ -61,7 +61,7 @@
     -webkit-box-orient: vertical;
 }
 
-.CategoryMemberCountContainer {
+.MemberCountContainer {
     bottom:0;
     right:0;
     width: 100%;

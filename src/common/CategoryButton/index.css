@@ -1,0 +1,69 @@
+.ButtonRoot {
+    width: 168px;
+    height: 111px;
+    background-color:#FCD64F;
+    border-radius: 10px;
+    position: relative;
+}
+
+.MainContentWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+.CategoryNameContainer {
+    top: 0;
+    right: 0;
+    width: 100%;
+    /*justify-content: center;*/
+    /*height: auto;
+    position: relative;
+    align-items: center;*/
+/*}*/
+
+.CategoryName {
+    left:0;
+    width:100%;
+    text-align: center;
+    position: absolute;
+    font-family: "IBM Plex Sans";
+    font-weight: bolder;
+    font-size: 18px;
+    flex:1;
+    bottom: 50%;
+}
+
+.RoomCountContainer {
+    bottom:0;
+    right:0;
+    width: 100%;
+    height: 30px;
+    background-color:#c4c4c4;
+    border-radius: 0px 0px 10px 10px;
+    position: absolute;
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-self: flex-end;
+    align-items: center;
+}
+
+.ContentWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.RoomCount {
+    font-family: "IBM Plex Sans";
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.DescriptionText {
+    font-family: "IBM Plex Sans";
+    font-size: 11px;
+    margin-top: 7px;
+}

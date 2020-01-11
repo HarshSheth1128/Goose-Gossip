@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './index.css';
 
-const Category = ({onClick, categoryName, lastMessage, memberCount}) => {
+const ChatRoomButton = ({onClick, chatName, lastMessage, memberCount}) => {
     return (
         <>
-            <button className="CategoryRoot" onClick={onClick}>
+            <button className="ButtonRoot" onClick={onClick}>
                 <div className="MainContentWrapper">
-                <div className="CategoryNameContainer">
-                    <div className="CategoryName">{categoryName}</div>
+                <div className="ChatNameContainer">
+                    <div className="ChatName">{chatName}</div>
                 </div>
                 <div className="LastMessageContainer line-clamp">{lastMessage}</div>
-                <div className="CategoryMemberCountContainer">
+                <div className="MemberCountContainer">
                     <div className="ContentWrapper">
                         <div className="MemberCount">{memberCount}</div>
                         <div className="MemberText">warriors here right now</div>
@@ -22,4 +22,4 @@ const Category = ({onClick, categoryName, lastMessage, memberCount}) => {
     );
 }
 
-export default Category;
+export default ChatRoomButton;

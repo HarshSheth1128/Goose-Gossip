@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import MainPage from "./pages/MainPage/";
-import Category from "./common/Category/"
+import ChatRoomButton from "./common/ChatRoomButton/"
+import CategoryButton from "./common/CategoryButton/"
 
 function App() {
   return (
-    <Category 
+    <CategoryButton 
       categoryName="CS246" 
-      memberCount="16" 
-      lastMessage="GooseFighter69: That midterm absolutey destroyed my faith"
+      roomCount="16" 
     />
     //<MainPage />
   );
