@@ -143,8 +143,10 @@
 
 #modalTitle {
     font-family: 'IBM Plex Sans', sans-serif; 
-    font-size: 3rem;
+    font-size: 2.0rem;
     margin: 10px;
+    margin-left: 20px;
+    color: #4F4F4F;
 }
 
 #InfoText{
@@ -180,7 +182,7 @@
     width: 70%;
     border-radius: 20px;
     background-color: white;
-    border: solid 1px #C4C4C4;
+    /* border: solid 1px #4F4F4F; */
     box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
@@ -188,6 +190,7 @@
     justify-content: flex-start;
     animation-name: showModal;
     animation-duration: 0.5s;
+    animation-timing-function: ease-out;
 }
 
 @-webkit-keyframes showModal {
@@ -241,7 +244,7 @@
     }
 
     #modalTitle {
-        font-size: 2.5rem;
+        font-size: 2.0rem;
         margin: 10px;
     }
 
@@ -332,7 +335,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 10px;
+    margin: 20px;
 }
 
 
@@ -343,8 +346,12 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    /* padding-left: 20px;
+    padding-right: 20px; */
     align-items: center;
+    background-color: #F8D869;
+    border-radius: 20px 20px 0px 0px;
 }
 
 #modalStartDiv #glue {
@@ -354,12 +361,10 @@
 #closeButton {
     height: 30px;
     width: 30px;
-    margin-left: 10px;
+    margin-right: 20px;
     background-color: #FF2B46;
     color: white;
     border-radius: 10px;
-    align-self: flex-start;
-    margin-top:20px;
     border: none;
     animation-name: mainButtonShrink;
     animation-duration: 0.5s;

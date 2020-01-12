@@ -41,7 +41,7 @@ class MainPage extends Component {
                         <img id="gooseImage" src={Goose} alt="goose" />
                         <LogInSignUp formState={this.state.entryVersion} />
                         <div className="ButtonWrapper">
-                            <button className="MainPageEntryButton"><b>Enter as Guest</b></button>
+                            <button className="MainPageEntryButton"><b>{(this.state.entryVersion === -1) ? "Enter as Guest" : "Enter"}</b></button>
                         </div>
                     </div>
                     <div className="RightContentContainer">
@@ -52,9 +52,9 @@ class MainPage extends Component {
                 <Modal show={this.state.showModal} handleClose={() => { this.setState({ showModal: false }) }}>
                     <div id="modalFlex">
                         <div id="modalSplash">
-                            <button onClick={() => { this.setState({ showModal: false }) }} id="closeButton">X</button>
                             <div id="modalStartDiv">
-                                <p id="modalTitle">What is this?</p>
+                                <p id="modalTitle"><b>What is this?</b></p>
+                                <button onClick={() => { this.setState({ showModal: false }) }} id="closeButton">X</button>
                             </div>
                             <div>
                                 <p>Goose Gossip is an anonymous chatroom and forum for Waterloo students to discuss anything and everything.

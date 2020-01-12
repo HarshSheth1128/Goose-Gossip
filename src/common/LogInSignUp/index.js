@@ -12,7 +12,7 @@ const LogInSignUpForm = ({ formState }) => {
             {formState !== -1 &&
                 <>
                     <input className="input" placeholder="Username"></input>
-                    <input className="input" placeholder="Password"></input>
+                    <input type="password" className="input" placeholder="Password"></input>
                 </>}
         </div>
     );
