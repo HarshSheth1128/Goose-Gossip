@@ -6,15 +6,15 @@ const CategoryButton = ({onClick, categoryName, roomCount}) => {
         <>
             <button className="ButtonRoot" onClick={onClick}>
                 <div className="MainContentWrapper">
-                <div className="RoomCountContainer">
-                    <div className="ContentWrapper">
-                        <div className="RoomCount">{roomCount}</div>
-                        <div className="DescriptionText">goose rooms</div>
+                    <div className="RoomCountContainer">
+                        <div className="ContentWrapper">
+                            <div className="RoomCount">{roomCount}</div>
+                            <div className="DescriptionText">goose rooms</div>
+                        </div>
                     </div>
-                </div>
-                <div className="CategoryNameContainer">
-                    <div className="CategoryName">{categoryName}</div>
-                </div>
+                    <div className="CategoryNameContainer">
+                        <div className="CategoryName">{categoryName}</div>
+                    </div>
                 </div>
             </button>
         </>
