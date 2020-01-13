@@ -1,0 +1,7 @@
+.SearchBarRoot {
+    position: fixed;
+    width: 1300px;
+    height: 45px;
+    background-color: #c4c4c4;
+    border-radius: 22px;
+}

@@ -11,7 +11,7 @@ const MenuBar = () => {
                 <nav className="MenuBarContentWrapper">
                     <img src={GooseImage} className="GooseImage" />
                     <div className="Spacer"></div>
-                    <div className="MenubarNavigation">
+                    <div className="MenuBarNavigation">
                         <ul>
                             <li><a href="/">Rooms</a></li>
                             <li><div className="VerticalSeperator"></div></li>

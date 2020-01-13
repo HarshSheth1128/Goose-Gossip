@@ -2,7 +2,7 @@
     background: #fcd64f;
     position: fixed;
     width: 100%;
-    height: 40px;
+    height: 2.4rem;
 }
 
 .MenuBarContentWrapper {
@@ -12,23 +12,24 @@
     padding: 0.1rem 0.8rem;
 }
 
-.MenubarNavigation a {
+.MenuBarNavigation a {
     color: #4f4f4f;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-family: "IBM Plex Sans";
     font-weight: bold;
     font-style: normal;
     text-decoration: none;   
 }
 
-.MenubarNavigation ul {
+.MenuBarNavigation ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
 }
 
-.MenubarNavigation li {
+.MenuBarNavigation li {
     padding: 0 0 0 1rem;
 }
 
@@ -38,7 +39,7 @@
     width: 3rem;
 }
 
-.MenubarNavigation img {
+.MenuBarNavigation img {
     height: 1.4rem;
     width: 1.5rem; 
     fill: #c4c4c4;
@@ -50,5 +51,5 @@
 
 .VerticalSeperator {
     border:  1px solid #c4c4c4;
-    height: 1.2rem;
+    height: 1rem;
 }
