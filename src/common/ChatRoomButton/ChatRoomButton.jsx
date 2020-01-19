@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css';
+import './ChatRoomButton.css';
 
 const ChatRoomButton = ({onClick, chatName, lastMessage, memberCount}) => {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css';
+import './MenuBar.css';
 import GooseImage from '../../images/goose.png'
 import HomeIcon from '../../images/home.svg'
 import BoardIcon from '../../images/board.svg'

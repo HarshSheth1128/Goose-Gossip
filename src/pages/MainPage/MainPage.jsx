@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css'
+import './MainPage.css'
 import Goose from '../../images/goose.png';
 import Modal from '../../common/Modal';
 

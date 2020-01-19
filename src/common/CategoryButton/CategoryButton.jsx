@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css';
+import './CategoryButton.css';
 
 const CategoryButton = ({onClick, categoryName, roomCount}) => {
     return (

@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import MainPage from "./pages/MainPage/";
-import ChatRoomButton from "./common/ChatRoomButton/"
-import CategoryButton from "./common/CategoryButton/"
-import MenuBar from "./common/MenuBar/"
-import SearchBar from "./common/SearchBar"
+import MainPage from "./pages/MainPage/MainPage";
+import ChatRoomButton from "./common/ChatRoomButton/ChatRoomButton"
+import CategoryButton from "./common/CategoryButton/CategoryButton"
+import MenuBar from "./common/MenuBar/MenuBar"
+import SearchBar from "./common/SearchBar/SearchBar"
 
 function App() {
   return (
