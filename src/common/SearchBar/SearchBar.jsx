@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-//import './index.css';
-import './SearchBar.css'
+import './index.css';
+//import './SearchBar.css'
 import SearchIcon from '../../images/search.svg'
 //import { ReactComponent as SearchIcon } from '../../images/search.svg';
 

@@ -1,6 +1,7 @@
 .MenuBarRoot {
     background: #fcd64f;
     position: fixed;
+    flex-direction: row;
     width: 100%;
     height: 2.4rem;
 }
@@ -49,7 +50,22 @@
     flex: 1;
 }
 
+.BoardIcon {
+    padding-top: 2px;
+}
+
 .VerticalSeperator {
     border:  1px solid #c4c4c4;
     height: 1rem;
+}
+
+@media only screen and (max-width: 425px) {
+    /* Mobile */
+    .MenuBarNavigation a,
+    .VerticalSeperator,
+    .BoardIcon
+    {
+        display: none;
+    }
+    
 }

@@ -17,7 +17,7 @@ const MenuBar = () => {
                             <li><div className="VerticalSeperator"></div></li>
                             <li><a href="/">Categories</a></li>
                             <li><div className="VerticalSeperator"></div></li>
-                            <li><img src={BoardIcon} /></li>
+                            <li><img src={BoardIcon} className="BoardIcon"/></li>
                             <li><div className="VerticalSeperator"></div></li>
                             <li><img src={HomeIcon} /></li>
                         </ul>
