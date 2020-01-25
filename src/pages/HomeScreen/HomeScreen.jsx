@@ -4,7 +4,8 @@ import '../../common/BottomNavBar/BottonNavBar';
 import NavBar from '../../common/BottomNavBar/BottonNavBar';
 import MenuBar from '../../common/MenuBar/MenuBar';
 import CategoryButton from '../../common/CategoryButton/CategoryButton';
-import ChatRoomButton from '../../common/ChatRoomButton/ChatRoomButton'
+import ChatRoomButton from '../../common/ChatRoomButton/ChatRoomButton';
+import SearchBar from '../../common/SearchBar/SearchBar';
 
 class HomeScreen extends Component {
     constructor() {
@@ -44,136 +45,7 @@ class HomeScreen extends Component {
                 <div className="HomeScreenRoot">
                     <MenuBar show={this.state.showNavBar}/>
                     <div className="HomeScreenRootContentWrapper">
-                        <ul>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                            <li>TEST</li>
-                        </ul>
+                        <div className="SearchBarContainer"><SearchBar /></div>
                     </div>
                     <NavBar show={this.state.showNavBar} />
                 </div>

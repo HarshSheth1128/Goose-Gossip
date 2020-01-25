@@ -12,8 +12,9 @@ body{
 
 .SearchBarRoot {
     background:white;
-    width: 50vw;
-    /*padding: 3em;*/
+    width: 103vw;
+    padding: 5vw;
+    padding-right: 0;
     /*box-shadow: 0 0 3em, gray;*/
     position: relative;
 }
@@ -26,9 +27,9 @@ body{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     border-radius: 23.5px;
     position: relative;
-    margin: 50px;
     width: 60px;
-    transition: width 600ms cubic-bezier(0.02, 0.89, 0.6, 1.2);
+    /*transition: width 600ms cubic-bezier(0.02, 0.89, 0.6, 1.2);*/
+    transition: width 920ms cubic-bezier(0.25, 1.24, 0.57, 1.04);
     overflow: hidden;
 }
 
@@ -58,7 +59,7 @@ body{
     font-weight: 500;
     font-size: 18px;
     line-height: 23px;
-    /*padding: 0 0.5rem;*/
+    padding: 0 0.5rem;
 }
 
 .SearchBarInput:focus {
@@ -108,4 +109,18 @@ body{
 .SearchBarWrapper:focus-within .SearchBarSubmit:hover{
   outline: 0;
   box-shadow: 0 0 10px rgba(0,0,0,0.30);
+}
+
+@media only screen and (max-width: 425px) {
+    /* Mobile */
+    .SearchBarWrapper {
+        height: 30px;
+        transition: width 600ms cubic-bezier(0.25, 1.24, 0.57, 1.04);
+    }
+    .SearchBarSubmit {
+        width: 40px;
+    }
+    .SearchBarInput::placeholder{
+        font-size: 15px;
+    }
 }
