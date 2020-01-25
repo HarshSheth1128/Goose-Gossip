@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import '../../common/BottomNavBar/BottonNavBar';
 import NavBar from '../../common/BottomNavBar/BottonNavBar';
+import MenuBar from '../../common/MenuBar/MenuBar';
+import CategoryButton from '../../common/CategoryButton/CategoryButton';
+import ChatRoomButton from '../../common/ChatRoomButton/ChatRoomButton'
 
 class HomeScreen extends Component {
     constructor() {
         super();
         this.state = {
             showNavBar: true,
-            prevScrollpos: 0
+            prevScrollpos: 0,
+            lastScrollUp: true
         };
     }
 
@@ -18,20 +22,13 @@ class HomeScreen extends Component {
         
 
     handleNavigation = (e) => {
-        const isBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight);
         const screen = e.currentTarget;
-        if (isBottom) {
-            //console.log("THERE");
-            this.setState({ showNavBar: true });
-        }
-        else if (this.state.prevScrollpos > screen.scrollY) {
+        if ((this.state.prevScrollpos > screen.scrollY) && !this.state.lastScrollUp) {
             //console.log("scrolling up");
-            //console.log(this.state.showNavBar);
-            this.setState({ showNavBar: true });
-        } else if (this.state.prevScrollpos < screen.scrollY) {
+            this.setState({ showNavBar: true, lastScrollUp: true});
+        } else if ((this.state.prevScrollpos < screen.scrollY) && this.state.prevScrollpos) {
             //console.log("scrolling down");
-            //console.log(this.state.showNavBar);
-            this.setState({ showNavBar: false });
+            this.setState({ showNavBar: false, lastScrollUp: false});
         }
         this.setState({ prevScrollpos: window.scrollY });
     };
@@ -43,7 +40,142 @@ class HomeScreen extends Component {
     render() {
         return (
             <>
-            <NavBar show={this.state.showNavBar} />
+                <div className="HomeScreenRoot">
+                    <MenuBar />
+                    <div className="HomeScreenRootContentWrapper">
+                        <ul>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                            <li>TEST</li>
+                        </ul>
+                    </div>
+                    <NavBar show={this.state.showNavBar} />
+                </div>
             </>
         );
     }
