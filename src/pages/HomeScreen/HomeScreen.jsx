@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./HomeScreen.css"
 import '../../common/BottomNavBar/BottonNavBar';
 import NavBar from '../../common/BottomNavBar/BottonNavBar';
 import MenuBar from '../../common/MenuBar/MenuBar';
@@ -41,7 +42,7 @@ class HomeScreen extends Component {
         return (
             <>
                 <div className="HomeScreenRoot">
-                    <MenuBar />
+                    <MenuBar show={this.state.showNavBar}/>
                     <div className="HomeScreenRootContentWrapper">
                         <ul>
                             <li>TEST</li>

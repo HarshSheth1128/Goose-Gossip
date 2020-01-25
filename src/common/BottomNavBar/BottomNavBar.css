@@ -16,7 +16,7 @@
     transition: 0.3s;
 }
 
-.MenuBarContentWrapper {
+.NavBarContentWrapper {
     display: flex;
     align-items: center;
     height: 100%;
@@ -24,7 +24,7 @@
     padding: 0.1rem 0.8rem;
 }
 
-.MenuBarContentWrapperHide {
+.NavBarContentWrapperHide {
     display: none;
 }
 
@@ -42,5 +42,5 @@
 @media only screen and (min-width: 425px) {
     /* Mobile */
     .NavBarRoot { display: none }
-    .MenuBarContentWrapper { display: none }   
+    .NavBarContentWrapper { display: none }   
 }

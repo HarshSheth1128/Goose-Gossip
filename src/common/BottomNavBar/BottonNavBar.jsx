@@ -5,9 +5,9 @@ import MessageIcon from '../../images/email.svg'
 import BoardIcon from '../../images/board_mobile.svg'
 
 
-const NavBar = ({show, handleClose}) => {
+const NavBar = ({show}) => {
     const NavBarClassName = show ? "NavBarRoot" : "NavBarRootHide";
-    const NavBarContentClass = show ? "MenuBarContentWrapper" : "MenuBarContentWrapperHide";
+    const NavBarContentClass = show ? "NavBarContentWrapper" : "NavBarContentWrapperHide";
     return (
         <>
             <header className={NavBarClassName}>

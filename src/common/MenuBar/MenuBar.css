@@ -5,6 +5,20 @@
     width: 100%;
     height: 2.4rem;
     top:0;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.MenuBarRootHide {
+    background: #fcd64f;
+    position: fixed;
+    flex-direction: row;
+    width: 100%;
+    top:0;
+    height: 0px;
+    bottom: 0;
+    transition: 0.3s;
+    z-index: 1;
 }
 
 .MenuBarContentWrapper {
@@ -12,6 +26,11 @@
     align-items: center;
     height: 100%;
     padding: 0.1rem 0.8rem;
+    transition: 0.3s;
+}
+
+.MenuBarContentWrapperHide {
+    display: none;
 }
 
 .MenuBarNavigation a {

@@ -4,11 +4,13 @@ import GooseImage from '../../images/goose.png'
 import HomeIcon from '../../images/home.svg'
 import BoardIcon from '../../images/board.svg'
 
-const MenuBar = () => {
+const MenuBar = ({show}) => {
+    const MenuBarClassName = show ? "MenuBarRoot" : "MenuBarRootHide";
+    const MenuBarContentClass = show ? "MenuBarContentWrapper" : "MenuBarContentWrapperHide";
     return (
         <>
-            <header className="MenuBarRoot">
-                <nav className="MenuBarContentWrapper">
+            <header className={MenuBarClassName}>
+                <nav className={MenuBarContentClass}>
                     <img src={GooseImage} className="GooseImage" />
                     <div className="Spacer"></div>
                     <div className="MenuBarNavigation">
