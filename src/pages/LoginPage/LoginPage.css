@@ -442,6 +442,13 @@
         transform: scaleY(1);}
 }
 
+
+@-webkit-keyframes fadeInput {
+    from {}
+    to {transform: rotateX(0deg);
+        transform: scaleY(1);}
+}
+
 @media only screen and (max-width: 425px) {
     .input{
         width: 250px;

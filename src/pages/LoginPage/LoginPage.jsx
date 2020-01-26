@@ -52,7 +52,7 @@ class LoginPage extends Component {
         console.log(this.state.entryVersion);
         if (this.state.entryVersion === GUEST_ENTRY) {
             this.props.handleLogin(this.state.entryVersion);
-            this.props.history.push('/app')
+            this.props.history.push('/app/test')
         } else if (this.state.entryVersion === LOGIN_ENTRY) {
             axios.post(AUTHENTICATE, {
                 username: this.state.username,
@@ -60,7 +60,7 @@ class LoginPage extends Component {
             }).then(() => {
                 this.props.handleLogin(this.state.entryVersion);
             }).then(() => {
-                this.props.history.push('/app');
+                this.props.history.push('/app/test');
             }).catch(() => {
                 this.setState({ loginFail: true });
             });
@@ -72,7 +72,7 @@ class LoginPage extends Component {
             }).then(() => {
                 this.props.handleLogin(this.state.entryVersion);
             }).then(() => {
-                this.props.history.push('/app');
+                this.props.history.push('/app/test');
             });
         }
     }

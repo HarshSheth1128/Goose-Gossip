@@ -1,0 +1,108 @@
+.chat-page-root{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    width: 100vh;
+    height: 100vh;
+}
+
+.side-bar-root {
+    background-color: #F1F1F1;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+.chat-area-root {
+    height: 100%;
+    width: 80%;
+    box-shadow: -4px 6px 10px rgb(0, 0, 0, 0.25);
+}
+
+#chat-header{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4F4F4F;
+}
+
+.chat-sort-button-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.chat-sort-button {
+    font-family: 'IBM Plex Sans', sans-serif;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: #4F4F4F;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0, 0.25);
+    animation-name: shrinkButton;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.chat-sort-button:hover{
+    animation-name: growButton;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes growButton {
+    from {}
+    to {
+        transform: scale(1.05);}
+}
+
+@-webkit-keyframes growButton {
+    from {}
+    to {
+        transform: scale(1.05);}
+}
+
+
+@keyframes shrinkButton {
+    from {}
+    to {transform: scale(1.05);
+        transform: scale(1.00);}
+}
+
+@-webkit-keyframes shrinkButton {
+    from {}
+    to {transform: scale(1.05);
+        transform: scale(1.00);}
+}
+
+
+.activated {
+    border-left: 8px solid #FCD64F;
+}
+
+.activated:hover{
+    border-left: 0px solid #FCD64F;
+    animation-name: growBorder;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes growBorder {
+    from {}
+    to {border-left: 0px solid #FCD64F;
+        border-left: 8px solid #FCD64F;}
+}
+
+@-webkit-keyframes growBorder {
+    from {}
+    to {border-left: 0px solid #FCD64F;
+        border-left: 8px solid #FCD64F;}
+}

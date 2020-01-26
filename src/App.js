@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import LoginPage from "./pages/LoginPage/LoginPage";
-import HomePage from "./pages/HomePage/HomePage"
+import HomePage from "./pages/HomePage/HomePage";
+import ChatPage from './pages/ChatPage/ChatPage';
 import {
   BrowserRouter as Router,
   Switch,
@@ -51,6 +52,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={() => <LoginPage handleLogin={this.handleLogin} />} />
           <Route exact path="/app" component={() => <HomePage loginState={this.state.loginState} />} />
+          <Route path="/app/*" component={() => <ChatPage loginState={this.state.loginState} />} />
         </Switch>
       </Router >
     );

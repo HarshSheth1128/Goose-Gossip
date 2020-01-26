@@ -1,0 +1,23 @@
+.search-root {
+    width: 275px;
+    height: 30px;
+    background-color: white;
+    border-radius: 10px;
+    align-self: center;
+    margin-top: 25px;
+    border: 1px solid #4F4F4F;
+}
+
+.search-input {
+    background-color: white;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.1rem;
+    border:none;
+    padding-top: 4px;
+    width: 225px;
+}
+
+#search-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+}
