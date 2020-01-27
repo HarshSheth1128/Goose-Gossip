@@ -42,6 +42,12 @@
     text-decoration: none;   
 }
 
+.MenuBarNavigation a:hover {
+    color:black;
+    text-shadow: 0px -2px 0px rgba(255,255,255,0.8), 0 0 5px rgba(255,255,255,0.8), 0 -4px 15px rgba(255,255,255,0.8);
+    transition: 0.25s ease;
+}
+
 .MenuBarNavigation ul {
     list-style: none;
     margin: 0;
@@ -64,6 +70,11 @@
     height: 1.4rem;
     width: 1.5rem; 
     fill: #c4c4c4;
+}
+
+.MenuBarNavigation img:hover {
+    box-shadow: 0px -2px 0px rgba(255,255,255,0.8), 0 0 5px rgba(255,255,255,0.8), 0 -4px 15px rgba(255,255,255,0.8);
+    cursor: pointer;
 }
 
 .Spacer {

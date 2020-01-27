@@ -12,8 +12,10 @@ body{
 
 .SearchBarRoot {
     background:white;
-    width: 103vw;
-    padding: 5vw;
+    /*width: 103vw;
+    padding: 10vw;*/
+    width: 100vw;
+    padding: 6vw;
     padding-right: 0;
     /*box-shadow: 0 0 3em, gray;*/
     position: relative;
@@ -101,7 +103,8 @@ body{
 .SearchBarWrapper:focus-within .SearchBarInput{
     opacity: 1;
     cursor: initial;
-    width: calc(10 0% - 96px);
+
+    width: calc(100% - 40px);
 }
 
 
@@ -114,7 +117,7 @@ body{
 @media only screen and (max-width: 425px) {
     /* Mobile */
     .SearchBarWrapper {
-        height: 30px;
+        height: 35px;
         transition: width 600ms cubic-bezier(0.25, 1.24, 0.57, 1.04);
     }
     .SearchBarSubmit {

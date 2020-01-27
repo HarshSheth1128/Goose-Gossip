@@ -4,7 +4,7 @@ import './ChatRoomButton.css';
 const ChatRoomButton = ({onClick, chatName, lastMessage, memberCount}) => {
     return (
         <>
-            <button className="ButtonRoot" onClick={onClick}>
+            <button className="ChatRoomButtonRoot" onClick={onClick}>
                 <div className="MainContentWrapper">
                     <div className="ChatNameContainer">
                         <div className="ChatName">{chatName}</div>

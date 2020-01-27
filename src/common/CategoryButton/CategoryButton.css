@@ -1,9 +1,17 @@
-.ButtonRoot {
+.ButtonWrapper{
+    margin: 2px;
+}
+
+.CategoryButtonRoot {
     width: 168px;
     height: 111px;
     background-color:#FCD64F;
     border-radius: 10px;
     position: relative;
+}
+
+.CategoryButtonRoot:hover {
+    cursor: pointer;
 }
 
 .MainContentWrapper {
@@ -66,4 +74,12 @@
     font-family: "IBM Plex Sans";
     font-size: 11px;
     margin-top: 7px;
+}
+
+@media only screen and (max-width: 425px) {
+    /* Mobile */
+    .CategoryButtonRoot {
+        width: 112px;
+        height: 112px;
+    }
 }

@@ -4,7 +4,8 @@ import './CategoryButton.css';
 const CategoryButton = ({onClick, categoryName, roomCount}) => {
     return (
         <>
-            <button className="ButtonRoot" onClick={onClick}>
+        <div className="ButtonWrapper">
+            <button className="CategoryButtonRoot" onClick={onClick}>
                 <div className="MainContentWrapper">
                     <div className="RoomCountContainer">
                         <div className="ContentWrapper">
@@ -17,6 +18,7 @@ const CategoryButton = ({onClick, categoryName, roomCount}) => {
                     </div>
                 </div>
             </button>
+        </div>
         </>
     );
 }

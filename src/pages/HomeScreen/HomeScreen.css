@@ -6,12 +6,87 @@
     flex-direction: column;
     top:0;
     margin: 0;
-
 }
 
 .HomeScreenRootContentWrapper {
     position: relative;
     flex-grow: 1;
     margin-top: 2.4rem;
+    display: flex;
+    flex-direction: column;
 }
 
+.SearchBarContainer {
+    width:100%;
+}
+
+.TopRowContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 4vw 0 4vw;
+ }
+
+ .Headings {
+    position: relative;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+    color: #000000;
+ }
+
+ .ListWrapper{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    
+    width: 100%;
+    padding: 20px 0;
+ }
+
+ ::-webkit-scrollbar {
+   width: 0px;  /* Remove scrollbar space */
+   background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+ .ChatRoomWrapper {
+    margin-right: 10px;
+    display: flex;
+ }
+
+ .ChatRoomWrapper:hover {
+   display:none
+}
+
+ .LinkContainer{
+    display: flex;
+    flex-direction: row;
+    padding-right: 5vw;
+    margin-left: auto;
+ }
+
+ #ViewAllLink{
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 23px;
+    text-align: center;
+    color: #2191FB;
+    
+}
+
+.BottomContentContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 4vw 0 4vw;
+ }
+
+ .CategoriesContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+ }

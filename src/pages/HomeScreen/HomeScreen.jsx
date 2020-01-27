@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {useSpring } from "react-spring";
+import { animated} from "react-spring";
 import "./HomeScreen.css"
 import '../../common/BottomNavBar/BottonNavBar';
 import NavBar from '../../common/BottomNavBar/BottonNavBar';
@@ -8,12 +10,17 @@ import ChatRoomButton from '../../common/ChatRoomButton/ChatRoomButton';
 import SearchBar from '../../common/SearchBar/SearchBar';
 
 class HomeScreen extends Component {
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
             showNavBar: true,
             prevScrollpos: 0,
-            lastScrollUp: true
+            lastScrollUp: true,
+            chatRooms: new Array(30).fill({
+                chatName: "CS246", 
+                memberCount: "16" ,
+                lastMessage: "This is a sample message for the sake of testing"
+            })
         };
     }
 
@@ -40,12 +47,46 @@ class HomeScreen extends Component {
     }
 
     render() {
+        /*const AnimatedChatRoomButton = animated(ChatRoomButton);
+        const style = useSpring({ cursor: PointerEvent, from: { cursor:  } })*/
         return (
             <>
                 <div className="HomeScreenRoot">
                     <MenuBar show={this.state.showNavBar}/>
                     <div className="HomeScreenRootContentWrapper">
                         <div className="SearchBarContainer"><SearchBar /></div>
+                        <div className="TopRowContainer">
+                            <div className="Headings">Warrior's Top 10</div>
+                            <div className="ListWrapper" {...this.props.bind()}>
+                                {this.state.chatRooms.map(chatRoom =>(
+                                    <animated.div className="ChatRoomWrapper" style={this.props.style}>
+                                    <ChatRoomButton chatName={chatRoom.chatName} 
+                                        memberCount={chatRoom.memberCount} 
+                                        lastMessage={chatRoom.lastMessage}/>
+                                    </animated.div>
+                                ))}
+                            </div>
+                            <div className="LinkContainer">
+                                <p id="ViewAllLink">View All</p>
+                            </div>
+                        </div>
+                        <div className="BottomContentContainer">
+                            <div className="Headings">Categories</div>
+                            <div className="CategoriesContainer">
+                                <CategoryButton categoryName="CS246" roomCount="16" />
+                                <CategoryButton categoryName="CS246" roomCount="16" />
+                                <CategoryButton categoryName="CS246" roomCount="16" />
+                                <CategoryButton categoryName="CS246" roomCount="16" />
+                                <CategoryButton categoryName="CS246" roomCount="16" />
+                                <CategoryButton categoryName="CS246" roomCount="16" />
+                                <CategoryButton categoryName="CS246" roomCount="16" />
+                                <CategoryButton categoryName="CS246" roomCount="16" />
+                                <CategoryButton categoryName="CS246" roomCount="16" />
+                            </div>
+                            <div className="LinkContainer">
+                                <p id="ViewAllLink">View All</p>
+                            </div>
+                        </div>
                     </div>
                     <NavBar show={this.state.showNavBar} />
                 </div>

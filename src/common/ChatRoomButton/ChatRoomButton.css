@@ -1,9 +1,15 @@
-.ButtonRoot {
-    width: 168px;
-    height: 111px;
+.ChatRoomButtonRoot {
+    min-width: 168px;
+    min-height: 98px;
     background-color:#c4c4c4;
     border-radius: 10px;
-    position: absolute;
+    position: relative;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+
+.ChatRoomButtonRoot:hover {
+    cursor: pointer;
 }
 
 .MainContentWrapper {
@@ -15,7 +21,7 @@
     top: 0;
     right: 0;
     width: 100%;
-    height: 35px;
+    height: 30px;
     background-color:#fcd64f;
     border-radius: 10px 10px 0px 0px;
     position: absolute;
@@ -26,7 +32,7 @@
     font-weight: bolder;
     justify-content: center;
     padding-top: 5px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /*.LastMessageContainer{
@@ -50,8 +56,8 @@
     position: relative;
     overflow: hidden;
     font-family: "IBM Plex Sans";
-    font-size: 13px;
-    font-weight: bolder;
+    font-size: 12px;
+    font-weight: normal ;
     margin-top: 5px;
 }
 
@@ -65,7 +71,7 @@
     bottom:0;
     right:0;
     width: 100%;
-    height: 30px;
+    height: 25px;
     background-color:#fcd64f;
     border-radius: 0px 0px 10px 10px;
     position: absolute;
@@ -85,14 +91,20 @@
 
 .MemberCount {
     font-family: "IBM Plex Sans";
-    font-size: 18px;
+    font-size: 16px;
     margin-right: 5px;
 }
 
 .MemberText {
     font-family: "IBM Plex Sans";
-    font-size: 11px;
-    margin-top: 7px;
+    font-size: 10px;
+    margin-top: 6px;
 }
 
+@media only screen and (max-width: 425px) {
+    /* Mobile */
+    .ChatRoomButtonRoot {
+        width: 150px;
+    }
+}
 
