@@ -15,7 +15,8 @@ body{
     /*width: 103vw;
     padding: 10vw;*/
     width: 100vw;
-    padding: 6vw;
+    padding: 15px 0 15px 6vw;
+    padding-left: 6vw;
     padding-right: 0;
     /*box-shadow: 0 0 3em, gray;*/
     position: relative;
@@ -96,7 +97,7 @@ body{
 }
 
 .SearchBarWrapper:focus-within .SearchBarSubmit{
-    background: pink;
+    background: #B61429;
     color: white;
 }
 

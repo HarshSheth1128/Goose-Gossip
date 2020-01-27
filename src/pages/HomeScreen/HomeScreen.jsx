@@ -19,7 +19,11 @@ class HomeScreen extends Component {
             chatRooms: new Array(30).fill({
                 chatName: "CS246", 
                 memberCount: "16" ,
-                lastMessage: "This is a sample message for the sake of testing"
+                lastMessage: "GooseFighter69: That midterm absolutely destroyed my faith in Waterloo"
+            }),
+            categories: new Array(10).fill({
+                categoryName: "CS246", 
+                roomCount: "16" 
             })
         };
     }
@@ -73,15 +77,11 @@ class HomeScreen extends Component {
                         <div className="BottomContentContainer">
                             <div className="Headings">Categories</div>
                             <div className="CategoriesContainer">
-                                <CategoryButton categoryName="CS246" roomCount="16" />
-                                <CategoryButton categoryName="CS246" roomCount="16" />
-                                <CategoryButton categoryName="CS246" roomCount="16" />
-                                <CategoryButton categoryName="CS246" roomCount="16" />
-                                <CategoryButton categoryName="CS246" roomCount="16" />
-                                <CategoryButton categoryName="CS246" roomCount="16" />
-                                <CategoryButton categoryName="CS246" roomCount="16" />
-                                <CategoryButton categoryName="CS246" roomCount="16" />
-                                <CategoryButton categoryName="CS246" roomCount="16" />
+                                {this.state.categories.map(category => (
+                                    <CategoryButton categoryName={category.categoryName} 
+                                        roomCount={category.roomCount}>
+                                    </CategoryButton>
+                                ))}
                             </div>
                             <div className="LinkContainer">
                                 <p id="ViewAllLink">View All</p>
