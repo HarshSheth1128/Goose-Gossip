@@ -378,3 +378,72 @@
     animation-fill-mode: forwards;
 }
 
+#input-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.input {
+    width: 300px;
+    border-radius: 10px;
+    color: #4F4F4F;
+    height: 40px;
+    border: none;
+    margin-bottom: 5px;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.8rem;
+    transform: rotateX(90deg);
+    transform: scaleY(0);
+    animation-name: fadeInput;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    z-index: 2;
+}
+
+.fail {
+    width: 300px;
+    border-radius: 10px;
+    color: #4F4F4F;
+    height: 40px;
+    border: none;
+    margin-bottom: 5px;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    border: solid 3px rgb(248, 161, 173);
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.8rem;
+    transform: rotateX(90deg);
+    transform: scaleY(0);
+    animation-name: fadeInput;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.failText {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: rgb(248, 161, 173);
+    margin-top: 10px;
+    padding: 5px;
+}
+
+@keyframes fadeInput {
+    from {}
+    to {transform: rotateX(0deg);
+        transform: scaleY(1);}
+}
+
+@media only screen and (max-width: 425px) {
+    .input{
+        width: 250px;
+    }
+}
