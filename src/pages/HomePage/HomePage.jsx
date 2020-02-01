@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-import {useSpring } from "react-spring";
-import { animated} from "react-spring";
-import "./HomeScreen.css"
-import '../../common/BottomNavBar/BottonNavBar';
-import NavBar from '../../common/BottomNavBar/BottonNavBar';
+import "./HomePage.css"
+//import '../../common/BottomNavBar/BottonNavBar';
+//import NavBar from '../../common/BottomNavBar/BottonNavBar';
 import MenuBar from '../../common/MenuBar/MenuBar';
 import CategoryButton from '../../common/Buttons/CategoryButton';
 import ChatRoomButton from '../../common/Buttons/ChatRoomButton';
 import SearchBar from '../../common/SearchBar/SearchBar';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+import { withRouter } from "react-router";
+import './HomePage.css';
 
-class HomeScreen extends Component {
+class HomePage extends Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
             showNavBar: true,
             prevScrollpos: 0,
@@ -26,6 +31,12 @@ class HomeScreen extends Component {
                 roomCount: "16" 
             })
         };
+        console.log(props.loginState);
+    }
+
+    render() {
+        console.log("hello");
+        return (<div className="HomePageRoot"></div>);
     }
 
     componentDidMount() {
@@ -33,7 +44,6 @@ class HomeScreen extends Component {
         window.addEventListener('scroll', e => this.handleNavigation(e));
     }
         
-
     handleNavigation = (e) => {
         const screen = e.currentTarget;
         if ((this.state.prevScrollpos > screen.scrollY) && !this.state.lastScrollUp) {
@@ -51,8 +61,6 @@ class HomeScreen extends Component {
     }
 
     render() {
-        /*const AnimatedChatRoomButton = animated(ChatRoomButton);
-        const style = useSpring({ cursor: PointerEvent, from: { cursor:  } })*/
         return (
             <>
                 <div className="HomeScreenRoot">
@@ -61,13 +69,11 @@ class HomeScreen extends Component {
                         <div className="SearchBarContainer"><SearchBar /></div>
                         <div className="TopRowContainer">
                             <div className="Headings">Warrior's Top 10</div>
-                            <div className="ListWrapper" {...this.props.bind()}>
+                            <div className="ListWrapper" >
                                 {this.state.chatRooms.map(chatRoom =>(
-                                    <animated.div className="ChatRoomWrapper" style={this.props.style}>
                                     <ChatRoomButton chatName={chatRoom.chatName} 
                                         memberCount={chatRoom.memberCount} 
                                         lastMessage={chatRoom.lastMessage}/>
-                                    </animated.div>
                                 ))}
                             </div>
                             <div className="LinkContainer">
@@ -83,16 +89,16 @@ class HomeScreen extends Component {
                                     </CategoryButton>
                                 ))}
                             </div>
-                            <div className="LinkContainer">
+                            <div className="LinkContainer2">
                                 <p id="ViewAllLink">View All</p>
                             </div>
                         </div>
                     </div>
-                    <NavBar show={this.state.showNavBar} />
+                                {/*<NavBar show={this.state.showNavBar} />*/}
                 </div>
             </>
         );
     }
 }
 
-export default HomeScreen;
+export default withRouter(HomePage);

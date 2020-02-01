@@ -43,6 +43,7 @@
     width: 100%;
     padding: 10px 0;
     border: 0;
+    height: 135px;;
  }
 
  ::-webkit-scrollbar {
@@ -66,6 +67,14 @@
     padding: 0;
  }
 
+ .LinkContainer2{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    padding: 0;
+    padding-right: 4vw;
+ }
+
  #ViewAllLink{
     font-family: IBM Plex Sans;
     font-style: normal;
@@ -75,18 +84,23 @@
     text-align: center;
     color: #2191FB;
     padding: 0;
+    cursor: pointer;
+}
+
+#ViewAllLink:hover{
+    color: red;
 }
 
 .BottomContentContainer {
     display: flex;
     flex-direction: column;
-    padding: 0 4vw 0 4vw;
+    padding: 0 0vw 0 4vw;
  }
 
  .CategoriesContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
+   /* justify-content: space-between;*/
+    /*align-content: space-between;*/
  }

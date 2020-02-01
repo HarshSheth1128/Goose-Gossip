@@ -1,34 +1,53 @@
 .ButtonWrapper{
-    margin: 2px;
+    margin: 0 2.5vw 2.20vw 0;
 }
 
 .CategoryButtonRoot {
-    width: 168px;
+    width: 13vw;
     height: 111px;
     background-color:#FCD64F;
-    border-radius: 10px;
+    border-radius: 4px;
     position: relative;
+    border:none;
+    transition: background-color .5s ease;
+    box-shadow: 2px 2px 8px -2px rgba(0,0,0,0.4);
 }
 
-.CategoryButtonRoot:hover {
+.CategoryButtonRoot:after,
+.CategoryButtonRoot:after .RoomCountContainer:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform-style: flat;
+    transform: translate3d(-50%,-50%,0);
+    background: rgba(white,.1);
+    border-radius: 100%;
+    transition: width .3s ease, height .3s ease;
+}
+
+.CategoryButtonRoot:focus,
+.CategoryButtonRoot:hover{
+    background-color: #fbca1d;
     cursor: pointer;
+}
+
+.CategoryButtonRoot:hover .RoomCountContainer{
+    background-color: #ababab
+}
+
+.CategoryButtonRoot:active
+.CategoryButtonRoot::after{
+    width: 200px;
+    height: 200px;
 }
 
 .MainContentWrapper {
     display: flex;
     flex-direction: column;
 }
-
-/*
-.CategoryNameContainer {
-    top: 0;
-    right: 0;
-    width: 100%;
-    /*justify-content: center;*/
-    /*height: auto;
-    position: relative;
-    align-items: center;*/
-/*}*/
 
 .CategoryName {
     left:0;
@@ -48,7 +67,7 @@
     width: 100%;
     height: 30px;
     background-color:#c4c4c4;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 4px 4px;
     position: absolute;
     align-items: stretch;
     display: flex;
@@ -56,6 +75,7 @@
     justify-content: center;
     justify-self: flex-end;
     align-items: center;
+    transition: background-color .6s ease;
 }
 
 .ContentWrapper {
@@ -76,10 +96,36 @@
     margin-top: 7px;
 }
 
-@media only screen and (max-width: 565px) {
-    /* Mobile */
+@media only screen and (max-width: 1250px) {
     .CategoryButtonRoot {
-        width: 105px;
+        width: 16vw;
         height: 108px;
+    }
+    .ButtonWrapper{
+        margin: 0 3vw 3vw 0;
+    }
+}
+
+@media only screen and (max-width: 1022px) {
+    .CategoryButtonRoot {
+        width: 20vw;
+        height: 108px;
+    }
+}
+
+@media only screen and (max-width: 565px) {
+    .CategoryButtonRoot {
+        width: 28vw;
+        height: 108px;
+    }
+    .ButtonWrapper{
+        margin: 0 10px 10px 0;
+    }
+}
+
+@media only screen and (max-width: 365px) {
+    .CategoryButtonRoot {
+        width: 27vw;
+        height: 100px;
     }
 }

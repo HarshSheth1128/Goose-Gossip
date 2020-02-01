@@ -4,6 +4,7 @@ import './ChatRoomButton.css';
 const ChatRoomButton = ({onClick, chatName, lastMessage, memberCount}) => {
     return (
         <>
+        <div className="ChatRoomButtonWrapper">
             <button className="ChatRoomButtonRoot" onClick={onClick}>
                 <div className="MainContentWrapper">
                     <div className="ChatNameContainer">
@@ -18,6 +19,7 @@ const ChatRoomButton = ({onClick, chatName, lastMessage, memberCount}) => {
                     </div>
                 </div>
             </button>
+        </div>
         </>
     );
 }

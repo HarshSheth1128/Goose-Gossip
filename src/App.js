@@ -1,52 +1,59 @@
-import React from 'react';
-import {useSpring } from "react-spring";
-import { useScroll } from "react-use-gesture";
+import React, {Component} from 'react';
 import './App.css';
-import MainPage from "./pages/MainPage/MainPage";
-import ChatRoomButton from "./common/Buttons/ChatRoomButton"
-import CategoryButton from "./common/Buttons/CategoryButton"
-import MenuBar from "./common/MenuBar/MenuBar"
-import SearchBar from "./common/SearchBar/SearchBar"
-import NavBar from "./common/BottomNavBar/BottonNavBar"
-import HomeScreen from "./pages/HomeScreen/HomeScreen"
+//import NavBar from "./common/BottomNavBar/BottonNavBar"
+import LoginPage from "./pages/LoginPage/LoginPage";
+import HomePage from "./pages/HomePage/HomePage"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import CONSTANTS from './constants/constants'
+import { createBrowserHistory } from "history";
+const axios = require('axios').default;
 
-function App() {
+axios.defaults.baseURL = CONSTANTS.SERVER.HOSTNAME;
 
-  const [style, setFunction] = useSpring(() => ({
-    transform: "perspective(500px) rotateY(0deg)"
-  }));
+const history = createBrowserHistory();
+const { GUEST_LOGIN, USER_LOGIN, NOT_LOGGED_IN } = CONSTANTS.LOGIN_STATE;
+const { GUEST_ENTRY, LOGIN_ENTRY, SIGNUP_ENTRY } = CONSTANTS.LOGIN_TYPE;
 
-  const clamp = (value) => {
-    const clampAt = 30;
-    if (value > 0) {
-      return value > clampAt ? clampAt : value;
-    } else {
-      return value < -clampAt ? -clampAt : value;
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginState: NOT_LOGGED_IN
+    };
+  }
+  
+  handleLogin = (LOGIN_TYPE) => {
+    switch (LOGIN_TYPE) {
+      case GUEST_ENTRY:
+        this.setState({ loginState: GUEST_LOGIN });
+        break;
+      case LOGIN_ENTRY:
+        this.setState({ loginState: USER_LOGIN });
+        break;
+      case SIGNUP_ENTRY:
+        this.setState({ loginState: USER_LOGIN })
+        break;
+      default:
+        this.setState({ loginState: NOT_LOGGED_IN })
+        break;
     }
   }
 
-  const bind = useScroll(event => {
-    setFunction({
-      transform: `perspective(500px) rotateY(${
-        event.scrolling ? clamp(event.delta[0]) : 0
-      }deg)`
-    });
-  });
 
-  return (
-    /*<SearchBar />*/
-    <HomeScreen style={style} setFunction={setFunction} bind={bind}/>
-    /*<CategoryButton 
-      categoryName="CS246" 
-      roomCount="16" 
-    />*/
-    /*<ChatRoomButton 
-      chatName="CS246" 
-      memberCount="16" 
-      lastMessage="This is a sample msg for the sake of testing"
-    />*/
-    //<MainPage />
-  );
+  render() {
+    return (
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/" component={() => <LoginPage handleLogin={this.handleLogin} />} />
+          <Route exact path="/app" component={() => <HomePage loginState={this.state.loginState} />} />
+        </Switch>
+      </Router >
+    );
+  };
 }
 
 export default App;
