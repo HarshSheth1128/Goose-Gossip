@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MainPage.css'
 import Goose from '../../images/goose.png';
-import Modal from '../../common/Modal';
+import Modal from '../../common/Modal/Modal';
 
 class MainPage extends Component {
     state = {

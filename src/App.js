@@ -3,8 +3,8 @@ import {useSpring } from "react-spring";
 import { useScroll } from "react-use-gesture";
 import './App.css';
 import MainPage from "./pages/MainPage/MainPage";
-import ChatRoomButton from "./common/ChatRoomButton/ChatRoomButton"
-import CategoryButton from "./common/CategoryButton/CategoryButton"
+import ChatRoomButton from "./common/Buttons/ChatRoomButton"
+import CategoryButton from "./common/Buttons/CategoryButton"
 import MenuBar from "./common/MenuBar/MenuBar"
 import SearchBar from "./common/SearchBar/SearchBar"
 import NavBar from "./common/BottomNavBar/BottonNavBar"

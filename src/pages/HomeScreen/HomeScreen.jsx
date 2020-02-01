@@ -5,8 +5,8 @@ import "./HomeScreen.css"
 import '../../common/BottomNavBar/BottonNavBar';
 import NavBar from '../../common/BottomNavBar/BottonNavBar';
 import MenuBar from '../../common/MenuBar/MenuBar';
-import CategoryButton from '../../common/CategoryButton/CategoryButton';
-import ChatRoomButton from '../../common/ChatRoomButton/ChatRoomButton';
+import CategoryButton from '../../common/Buttons/CategoryButton';
+import ChatRoomButton from '../../common/Buttons/ChatRoomButton';
 import SearchBar from '../../common/SearchBar/SearchBar';
 
 class HomeScreen extends Component {
