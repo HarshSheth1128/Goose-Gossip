@@ -10,7 +10,10 @@ import {
 } from "react-router-dom";
 import CONSTANTS from './constants/constants'
 import { createBrowserHistory } from "history";
+import socketIOClient from 'socket.io-client';
 const axios = require('axios').default;
+const socket = socketIOClient(CONSTANTS.SERVER.HOSTNAME);
+
 
 axios.defaults.baseURL = CONSTANTS.SERVER.HOSTNAME;
 
@@ -23,26 +26,35 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginState: NOT_LOGGED_IN
+      loginState: NOT_LOGGED_IN,
+      username: null,
+      user_id: null
     };
 
   }
 
-  handleLogin = (LOGIN_TYPE) => {
+  componentDidMount() {
+    socket.on('chat response', function (msg) {
+      console.log("SENT BACK ", msg);
+    });
+  }
+
+  handleLogin = (LOGIN_TYPE, username, user_id) => {
     switch (LOGIN_TYPE) {
       case GUEST_ENTRY:
-        this.setState({ loginState: GUEST_LOGIN });
+        this.setState({ loginState: GUEST_LOGIN, username, user_id });
         break;
       case LOGIN_ENTRY:
-        this.setState({ loginState: USER_LOGIN });
+        this.setState({ loginState: USER_LOGIN, username, user_id });
         break;
       case SIGNUP_ENTRY:
-        this.setState({ loginState: USER_LOGIN })
+        this.setState({ loginState: USER_LOGIN, username, user_id });
         break;
       default:
-        this.setState({ loginState: NOT_LOGGED_IN })
+        this.setState({ loginState: NOT_LOGGED_IN, username, user_id });
         break;
     }
+    console.log(this.state);
   }
 
 
@@ -52,7 +64,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={() => <LoginPage handleLogin={this.handleLogin} />} />
           <Route exact path="/app" component={() => <HomePage loginState={this.state.loginState} />} />
-          <Route path="/app/*" component={() => <ChatPage loginState={this.state.loginState} />} />
+          <Route path="/app/*" component={() => <ChatPage socket={socket} {...this.state} />} />
         </Switch>
       </Router >
     );

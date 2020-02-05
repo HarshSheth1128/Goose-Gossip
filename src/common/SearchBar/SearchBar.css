@@ -1,5 +1,5 @@
 .search-root {
-    width: 275px;
+    width: 100%;
     height: 30px;
     background-color: white;
     border-radius: 10px;
@@ -14,7 +14,7 @@
     font-size: 1.1rem;
     border:none;
     padding-top: 4px;
-    width: 225px;
+    width: auto;
 }
 
 #search-icon {

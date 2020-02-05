@@ -5,8 +5,6 @@ import Modal from '../../common/Modal/Modal';
 import CONSTANTS from '../../constants/constants';
 import { withRouter } from "react-router";
 
-
-
 const axios = require('axios');
 
 const { GUEST_ENTRY, LOGIN_ENTRY, SIGNUP_ENTRY } = CONSTANTS.LOGIN_TYPE;
@@ -51,16 +49,21 @@ class LoginPage extends Component {
     handleSubmit = () => {
         console.log(this.state.entryVersion);
         if (this.state.entryVersion === GUEST_ENTRY) {
-            this.props.handleLogin(this.state.entryVersion);
-            this.props.history.push('/app/test')
+            axios.post(AUTHENTICATE).then((res) => {
+                this.props.handleLogin(this.state.entryVersion, res.data.username, res.data.id);
+            }).then(() => {
+                this.props.history.push('/app/test')
+            }).catch(() => {
+                this.setState({ loginFail: true });
+            });
         } else if (this.state.entryVersion === LOGIN_ENTRY) {
             axios.post(AUTHENTICATE, {
                 username: this.state.username,
                 password: this.state.password
+            }).then((res) => {
+                return this.props.handleLogin(this.state.entryVersion, res.data.username, res.data.id);
             }).then(() => {
-                this.props.handleLogin(this.state.entryVersion);
-            }).then(() => {
-                this.props.history.push('/app/test');
+                return this.props.history.push('/app/test');
             }).catch(() => {
                 this.setState({ loginFail: true });
             });
@@ -69,8 +72,8 @@ class LoginPage extends Component {
                 username: this.state.username,
                 password: this.state.password,
                 email: this.state.email
-            }).then(() => {
-                this.props.handleLogin(this.state.entryVersion);
+            }).then((res) => {
+                this.props.handleLogin(this.state.entryVersion, res.data.username, res.data.id);
             }).then(() => {
                 this.props.history.push('/app/test');
             });

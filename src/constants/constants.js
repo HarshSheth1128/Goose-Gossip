@@ -3,6 +3,7 @@ module.exports = {
         HOSTNAME: "http://localhost:4000",
         AUTHENTICATE: "/authenticate",
         REGISTER: "/register",
+        CHATS: "/chats",
     },
     LOGIN_STATE: {
         GUEST_LOGIN: "guest_login",
