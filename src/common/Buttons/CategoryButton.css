@@ -1,4 +1,4 @@
-.ButtonWrapper{
+.CategoryButtonWrapper{
     margin: 0 2.5vw 2.20vw 0;
 }
 
@@ -101,7 +101,7 @@
         width: 16vw;
         height: 108px;
     }
-    .ButtonWrapper{
+    .CategoryButtonWrapper{
         margin: 0 3vw 3vw 0;
     }
 }
@@ -118,7 +118,7 @@
         width: 28vw;
         height: 108px;
     }
-    .ButtonWrapper{
+    .CategoryButtonWrapper{
         margin: 0 10px 10px 0;
     }
 }

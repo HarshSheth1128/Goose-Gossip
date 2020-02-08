@@ -31,14 +31,13 @@ class HomePage extends Component {
                 roomCount: "16" 
             })
         };
-        console.log(props.loginState);
     }
-
+ /*
     render() {
         console.log("hello");
         return (<div className="HomePageRoot"></div>);
     }
-
+*/
     componentDidMount() {
         this.setState({ prevScrollpos: window.scrollY });
         window.addEventListener('scroll', e => this.handleNavigation(e));
@@ -77,7 +76,7 @@ class HomePage extends Component {
                                 ))}
                             </div>
                             <div className="LinkContainer">
-                                <p id="ViewAllLink">View All</p>
+                            <p id="ViewAllLink">View All</p>
                             </div>
                         </div>
                         <div className="BottomContentContainer">
