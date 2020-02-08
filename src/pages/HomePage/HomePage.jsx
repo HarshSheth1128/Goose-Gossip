@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./HomePage.css"
 //import '../../common/BottomNavBar/BottonNavBar';
-//import NavBar from '../../common/BottomNavBar/BottonNavBar';
+import NavBar from '../../common/BottomNavBar/BottonNavBar';
 import MenuBar from '../../common/MenuBar/MenuBar';
 import CategoryButton from '../../common/Buttons/CategoryButton';
 import ChatRoomButton from '../../common/Buttons/ChatRoomButton';
@@ -32,11 +32,6 @@ class HomePage extends Component {
             })
         };
         console.log(props.loginState);
-    }
-
-    render() {
-        console.log("hello");
-        return (<div className="HomePageRoot"></div>);
     }
 
     componentDidMount() {
@@ -94,7 +89,7 @@ class HomePage extends Component {
                             </div>
                         </div>
                     </div>
-                                {/*<NavBar show={this.state.showNavBar} />*/}
+                    <NavBar show={this.state.showNavBar} />
                 </div>
             </>
         );
