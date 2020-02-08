@@ -4,7 +4,7 @@ import './CategoryButton.css';
 const CategoryButton = ({onClick, categoryName, roomCount}) => {
     return (
         <>
-        <div className="ButtonWrapper">
+        <div className="CategoryButtonWrapper">
             <button className="CategoryButtonRoot" onClick={onClick}>
                 <div className="MainContentWrapper">
                     <div className="RoomCountContainer">

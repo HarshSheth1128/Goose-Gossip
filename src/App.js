@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import CONSTANTS from './constants/constants'
 import { createBrowserHistory } from "history";
+//import CategoriesPage from './pages/CategoriesPage/CategoriesPage';
 const axios = require('axios').default;
 
 axios.defaults.baseURL = CONSTANTS.SERVER.HOSTNAME;
@@ -25,7 +26,7 @@ class App extends Component {
       loginState: NOT_LOGGED_IN
     };
   }
-  
+
   handleLogin = (LOGIN_TYPE) => {
     switch (LOGIN_TYPE) {
       case GUEST_ENTRY:
