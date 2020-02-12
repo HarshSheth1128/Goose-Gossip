@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import MenuBar from '../../common/MenuBar/MenuBar'
 import SearchBar from '../../common/SearchBar/SearchBar';
-import './CategoriesPage.css';
+import './ViewPage.css';
 import { withRouter } from "react-router";
 import ChatRoomButton from '../../common/Buttons/ChatRoomButton';
 import CategoryButton from '../../common/Buttons/CategoryButton'
 import CONSTANTS from '../../constants/constants';
 
-const { LOGIN_PAGE, HOME_PAGE, CATEGORIES_LIST_PAGE, CHATS_LIST_PAGE, CHAT_PAGE } = CONSTANTS.PAGE_PATHS;
+const { CATEGORIES_LIST_PAGE } = CONSTANTS.PAGE_PATHS;
 
-class CategoriesPage extends Component {
+class ViewPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -111,9 +111,9 @@ class CategoriesPage extends Component {
     render() {
         const isCategoriesPage = this.isCategoryListPage();
         return (
-            <div className="CategoriesPageRoot">
+            <div className="ViewPageRoot">
                 <MenuBar show={this.state.showNavBar} handleSubmit={this.handleSubmit} />
-                <div className="CategoriesPageContentWrapper">
+                <div className="ViewPageContentWrapper">
                     <div className="CategoriesTitle">{isCategoriesPage ? "Categories" : "Chat Rooms"}</div> 
                     <div className="SearchBarContainer"><SearchBar /></div> 
                     <div className="MainContentWrapper">
@@ -129,4 +129,4 @@ class CategoriesPage extends Component {
     }
 }
 
-export default withRouter(CategoriesPage);
+export default withRouter(ViewPage);

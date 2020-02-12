@@ -15,7 +15,7 @@ import { withRouter } from "react-router";
 import './HomePage.css';
 import CONSTANTS from '../../constants/constants';
 
-const { LOGIN_PAGE, HOME_PAGE, CATEGORIES_LIST_PAGE, CHATS_LIST_PAGE, CHAT_PAGE } = CONSTANTS.PAGE_PATHS;
+const { HOME_PAGE, CATEGORIES_LIST_PAGE, CHATS_LIST_PAGE, CHAT_PAGE } = CONSTANTS.PAGE_PATHS;
 
 class HomePage extends Component {
     constructor(props) {
