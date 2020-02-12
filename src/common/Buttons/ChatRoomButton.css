@@ -1,11 +1,11 @@
 
 .ChatRoomButtonWrapper{
-    margin-right: 15px;
+    margin: 10px;
 }
 
 .ChatRoomButtonRoot {
-    min-width: 168px;
-    min-height: 98px;
+    width: 168px;
+    height: 98px;
     /*background-color:#c4c4c4;*/
     border-radius: 10px;
     position: relative;

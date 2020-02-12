@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import CONSTANTS from './constants/constants'
 import { createBrowserHistory } from "history";
-//import CategoriesPage from './pages/CategoriesPage/CategoriesPage';
+import CategoriesPage from './pages/CategoriesListPage/CategoriesPage';
 const axios = require('axios').default;
 
 axios.defaults.baseURL = CONSTANTS.SERVER.HOSTNAME;
@@ -51,6 +51,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={() => <LoginPage handleLogin={this.handleLogin} />} />
           <Route exact path="/app" component={() => <HomePage loginState={this.state.loginState} />} />
+          <Route path="/app/categories" component={() => <CategoriesPage loginState={this.state.loginState} />} />
+          <Route path="/app/chats" component={() => <CategoriesPage loginState={this.state.loginState} />} />
         </Switch>
       </Router >
     );

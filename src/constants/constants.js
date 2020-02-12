@@ -13,5 +13,12 @@ module.exports = {
         GUEST_ENTRY: "guest_entry",
         LOGIN_ENTRY: "login_entry",
         SIGNUP_ENTRY: "signup_entry"
+    },
+    PAGE_PATHS: {
+        LOGIN_PAGE:"/",
+        HOME_PAGE: "/app",
+        CATEGORIES_LIST_PAGE: "/app/categories",
+        CHATS_LIST_PAGE:"/app/chats",
+        CHAT_PAGE:""
     }
 }

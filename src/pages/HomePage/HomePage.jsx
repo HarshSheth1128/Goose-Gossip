@@ -13,11 +13,15 @@ import {
 } from "react-router-dom";
 import { withRouter } from "react-router";
 import './HomePage.css';
+import CONSTANTS from '../../constants/constants';
+
+const { LOGIN_PAGE, HOME_PAGE, CATEGORIES_LIST_PAGE, CHATS_LIST_PAGE, CHAT_PAGE } = CONSTANTS.PAGE_PATHS;
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            nextPage: HOME_PAGE,
             showNavBar: true,
             prevScrollpos: 0,
             lastScrollUp: true,
@@ -50,14 +54,19 @@ class HomePage extends Component {
     };
 
     componentWillUnmount() {
-        window.removeEventListener('scroll');
+        window.removeEventListener('scroll', e => this.handleNavigation(e));
+    }
+
+    handleSubmit = (nextPage) => {
+        console.log(this.props.location);
+        this.props.history.push(nextPage);
     }
 
     render() {
         return (
             <>
                 <div className="HomeScreenRoot">
-                    <MenuBar show={this.state.showNavBar}/>
+                    <MenuBar show={this.state.showNavBar} handleSubmit={this.handleSubmit}/>
                     <div className="HomeScreenRootContentWrapper">
                         <div className="SearchBarContainer"><SearchBar /></div>
                         <div className="TopRowContainer">
@@ -70,7 +79,7 @@ class HomePage extends Component {
                                 ))}
                             </div>
                             <div className="LinkContainer">
-                            <p id="ViewAllLink">View All</p>
+                            <p id="ViewAllLink" onClick={(e) => this.handleSubmit(CHATS_LIST_PAGE)}>View All</p>
                             </div>
                         </div>
                         <div className="BottomContentContainer">
@@ -83,7 +92,7 @@ class HomePage extends Component {
                                 ))}
                             </div>
                             <div className="LinkContainer2">
-                                <p id="ViewAllLink">View All</p>
+                                <p id="ViewAllLink" onClick={(e) => this.handleSubmit(CATEGORIES_LIST_PAGE)}>View All</p>
                             </div>
                         </div>
                     </div>

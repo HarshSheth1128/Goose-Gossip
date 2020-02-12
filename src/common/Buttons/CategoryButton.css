@@ -34,7 +34,8 @@
     cursor: pointer;
 }
 
-.CategoryButtonRoot:hover .RoomCountContainer{
+.CategoryButtonRoot:hover .RoomCountContainer,
+.CategoryButtonRoot:focus .RoomCountContainer{
     background-color: #ababab
 }
 

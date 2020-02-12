@@ -1,0 +1,76 @@
+.CategoriesPageRoot{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    top:0;
+    margin: 0;
+}
+
+.CategoriesPageContentWrapper{
+    position: relative;
+    flex-grow: 1;
+    margin-top: 2.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.CategoriesTitle {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 40px 20px 40px;
+    display: flex;
+    flex-direction: row;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.CategoryListHolder{
+    display: flex;
+    white-space: pre;
+    margin: 5px;
+    margin-top: 25px;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+.MainContentWrapper ul {
+    counter-reset: alpha-list;
+    list-style: none;
+    padding-inline-end: 40px;
+}
+
+.MainContentWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainContentWrapper li::before {
+    counter-increment: alpha-list;
+    content: counter(alpha-list, upper-alpha);
+    transform: translateY(-50px);
+    font-size: 1.5em;
+}
+
+.CategoryListHolder{
+    display: flex;
+    white-space: pre;
+    margin: 5px;
+    margin-top: 25px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.CategoryListHolder::before {
+    content: '';
+    position: absolute;
+    width:  calc(100% - 80px);
+    background-color: black;
+    display: block;
+    height: 1px;
+    transform: translateY(-20px);
+}
