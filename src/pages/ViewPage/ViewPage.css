@@ -29,7 +29,6 @@
 
 .CategoryListHolder{
     display: flex;
-    white-space: pre;
     margin: 5px;
     margin-top: 25px;
     flex-direction: row;
@@ -54,15 +53,6 @@
     content: counter(alpha-list, upper-alpha);
     transform: translateY(-50px);
     font-size: 1.5em;
-}
-
-.CategoryListHolder{
-    display: flex;
-    white-space: pre;
-    margin: 5px;
-    margin-top: 25px;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 
 .CategoryListHolder::before {

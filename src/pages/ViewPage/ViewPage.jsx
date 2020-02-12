@@ -34,7 +34,7 @@ class ViewPage extends Component {
                 List: new Array(8).fill({
                     name: "CS246",
                     memberCount: 20,
-                    lastMessage: "That midterm absolutely destroyed my faith in waterloo"
+                    lastMessage: "GooseFighter69: That midterm absolutely destroyed my faith in waterloo"
                 })
             })
         };
@@ -58,7 +58,7 @@ class ViewPage extends Component {
     };
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', window.addEventListener('scroll', e => this.handleNavigation(e)));
+        window.removeEventListener('scroll', (e => this.handleNavigation(e)));
     }
 
     handleSubmit = (nextPage) => {

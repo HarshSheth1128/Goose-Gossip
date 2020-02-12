@@ -85,10 +85,12 @@
     color: #2191FB;
     padding: 0;
     cursor: pointer;
+    transition: 0.5s ease-out;
 }
 
 #ViewAllLink:hover{
     color: red;
+    transition: 0.15s ease-in;
 }
 
 .BottomContentContainer {
