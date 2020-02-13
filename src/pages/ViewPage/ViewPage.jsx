@@ -58,7 +58,7 @@ class ViewPage extends Component {
     };
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', (e => this.handleNavigation(e)));
+        window.removeEventListener('scroll', e => this.handleNavigation(e));
     }
 
     handleSubmit = (nextPage) => {
@@ -75,7 +75,7 @@ class ViewPage extends Component {
             {this.state.ChatList.map((alphagroup, i) => (
                 <li>
                     <div className="spacer"></div>
-                    <div className="CategoryListHolder">
+                    <div className="ListHolder">
                     {alphagroup.List.map((chatRoom) => (
                         <ChatRoomButton 
                             chatName={chatRoom.name} 
@@ -95,7 +95,7 @@ class ViewPage extends Component {
             <ul>
                 {this.state.CategoriesList.map((alphagroup, i) => (
                 <li>
-                    <div className="CategoryListHolder">
+                    <div className="ListHolder">
                     {alphagroup.List.map((category) => (
                         <CategoryButton categoryName={category.name} 
                             roomCount={category.roomCount}>

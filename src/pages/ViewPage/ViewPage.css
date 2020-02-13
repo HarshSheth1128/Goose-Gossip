@@ -27,7 +27,7 @@
     font-size: 30px;
 }
 
-.CategoryListHolder{
+.ListHolder{
     display: flex;
     margin: 5px;
     margin-top: 25px;
@@ -35,7 +35,22 @@
     width: 100%;
     padding: 10px 0;
     flex-wrap: wrap;
+    -webkit-animation-name: viewListFadeIn; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: viewListFadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
+
+@-webkit-keyframes viewListFadeIn{
+    from {transform: translateY(-15px);opacity: 0;}
+    to { opacity: 1;}
+  }
+  
+ @keyframes viewListFadeIn {
+    from {transform: translateY(-15px); opacity: 0;}
+    to {opacity: 1;}
+ }
 
 .MainContentWrapper ul {
     counter-reset: alpha-list;
@@ -55,7 +70,7 @@
     font-size: 1.5em;
 }
 
-.CategoryListHolder::before {
+.ListHolder::before {
     content: '';
     position: absolute;
     width:  calc(100% - 80px);
@@ -63,4 +78,5 @@
     display: block;
     height: 1px;
     transform: translateY(-20px);
+    transition: width 0.5s ease-in-out;
 }
