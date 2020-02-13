@@ -9,5 +9,8 @@ export default {
     },
     send_message: (message) => {
         return axios.post(`${MESSAGES}`, message);
+    },
+    get_messages_for_chat: (activeChatID) => {
+        return axios.get(`${MESSAGES}/${activeChatID}`);
     }
 }

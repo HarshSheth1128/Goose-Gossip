@@ -21,12 +21,10 @@ class ChatPage extends Component {
             chatShowType: "all",
             filterString: "",
             chatTyping: false,
+            activeChat: null,
             messages: [],
             rooms: []
         };
-    }
-
-    componentDidMount() {
         this.setupSocket();
         this.getChats();
     }
@@ -55,7 +53,7 @@ class ChatPage extends Component {
                 return { ...room, isActive: false };
             });
             if (res.data[0]) res.data[0].isActive = true;
-            this.setState({ rooms: res.data });
+            this.setState({ rooms: res.data, activeChat: res.data[0] });
         }).then(() => {
             this.getMessagesForCurrentChat();
         });
@@ -108,7 +106,7 @@ class ChatPage extends Component {
             if (this.state.rooms[i].id === roomID) {
                 let newRooms = this.state.rooms;
                 newRooms[i].isActive = true;
-                this.setState({ rooms: newRooms }, () => {
+                this.setState({ rooms: newRooms, activeChat: newRooms[i] }, () => {
                     this.getMessagesForCurrentChat();
                 });
             } else if (this.state.rooms[i].isActive) {
@@ -147,7 +145,7 @@ class ChatPage extends Component {
         for (let room of this.state.rooms) {
             if (room.isActive) activeChatID = room.id;
         }
-        axios.get(`${MESSAGES}/${activeChatID}`).then((res) => {
+        ChatAPI.get_messages_for_chat(activeChatID).then((res) => {
             this.setState({ messages: res.data })
         })
     }
@@ -166,6 +164,13 @@ class ChatPage extends Component {
                     {this.renderChatRooms()}
                 </div >
                 <div className="chat-area-root">
+                    <div className="chat-title">
+                        <div className="chat-room-icon-title"></div>
+                        <div className="chat-info-text">
+                            <span class="chat-title-text"><strong>{(this.state.activeChat) ? this.state.activeChat.chat_name : ""}</strong></span>
+                            <span class="chat-subtitle-text">Subtitle here</span>
+                        </div>
+                    </div>
                     <div className="chat-root">
                         {this.renderMessages()}
                         {this.state.chatTyping && <div className="server-message">...</div>}
@@ -175,9 +180,6 @@ class ChatPage extends Component {
                         <ContentEditable html={this.state.message} id="message-input" onKeyPress={this.handleEnterSubmit} onChange={this.handleMessageChange}></ContentEditable>
                         <button className="chat-box-button" onClick={this.sendMessage}>
                             <span><i aria-hidden="false" id="chat-chevron" className="fas fa-chevron-up"></i></span>
-                        </button>
-                        <button className="chat-box-button">
-                            {/* <span><i aria-hidden="true" id="chat-chevron" className="fas fa-smile"></i></span> */}
                         </button>
                     </div>
                 </div>
