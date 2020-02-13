@@ -4,6 +4,7 @@ import Goose from '../../images/goose.png';
 import Modal from '../../common/Modal/Modal';
 import CONSTANTS from '../../constants/constants';
 import { withRouter } from "react-router";
+import AuthAPI from '../../api/Auth';
 
 const axios = require('axios');
 
@@ -24,7 +25,6 @@ class LoginPage extends Component {
         }
     }
 
-
     handleLogInSignUp = (buttonType) => {
         if (buttonType === "LogIn") {
             if (this.state.entryVersion !== LOGIN_ENTRY) {
@@ -43,40 +43,32 @@ class LoginPage extends Component {
     }
 
     handleChange = (key, value) => {
-        this.setState({ [key]: value })
+        this.setState({ [key]: value });
     }
 
     handleSubmit = () => {
-        console.log(this.state.entryVersion);
-        if (this.state.entryVersion === GUEST_ENTRY) {
-            axios.post(AUTHENTICATE).then((res) => {
-                this.props.handleLogin(this.state.entryVersion, res.data.username, res.data.id);
-            }).then(() => {
-                this.props.history.push('/app/test')
-            }).catch(() => {
-                this.setState({ loginFail: true });
-            });
-        } else if (this.state.entryVersion === LOGIN_ENTRY) {
-            axios.post(AUTHENTICATE, {
-                username: this.state.username,
-                password: this.state.password
-            }).then((res) => {
-                return this.props.handleLogin(this.state.entryVersion, res.data.username, res.data.id);
-            }).then(() => {
-                return this.props.history.push('/app/test');
-            }).catch(() => {
-                this.setState({ loginFail: true });
-            });
-        } else if (this.state.entryVersion === SIGNUP_ENTRY) {
-            axios.post(REGISTER, {
-                username: this.state.username,
-                password: this.state.password,
-                email: this.state.email
-            }).then((res) => {
-                this.props.handleLogin(this.state.entryVersion, res.data.username, res.data.id);
-            }).then(() => {
-                this.props.history.push('/app/test');
-            });
+        let { username, password, email, entryVersion } = this.state;
+        if (entryVersion === SIGNUP_ENTRY) {
+            AuthAPI.register_user({ username, password, email })
+                .then((res) => {
+                    this.props.handleLogin(
+                        res.data.username,
+                        res.data.id
+                    );
+                })
+                .then(this.props.history.push('/app/test'))
+                .catch(this.setState({ loginFail: true }));
+        } else {
+            const User = (entryVersion === GUEST_ENTRY) ? null : { username, password }
+            AuthAPI.authenticate_user(User)
+                .then((res) => {
+                    this.props.handleLogin(
+                        res.data.username,
+                        res.data.id
+                    );
+                })
+                .then(this.props.history.push('/app/test'))
+                .catch(this.setState({ loginFail: true }));
         }
     }
 

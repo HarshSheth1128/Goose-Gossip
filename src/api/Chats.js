@@ -1,0 +1,13 @@
+import axios from "axios";
+import auth from '../common/auth';
+const CONSTANTS = require('../constants/constants');
+const { CHATS, MESSAGES } = CONSTANTS.SERVER;
+
+export default {
+    get_chats_by_user_id: () => {
+        return axios.get(`${CHATS}/${auth.user_id}`, { withCredentials: true });
+    },
+    send_message: (message) => {
+        return axios.post(`${MESSAGES}`, message);
+    }
+}

@@ -3,10 +3,14 @@ import SearchBar from '../../common/SearchBar/SearchBar';
 import './ChatPage.css';
 import { withRouter } from "react-router";
 import ContentEditable from 'react-contenteditable'
+import socket from '../../common/socket';
+import auth from '../../common/auth';
+import ChatAPI from '../../api/Chats';
 
 const axios = require('axios');
 const CONSTANTS = require('../../constants/constants');
-const { CHATS } = CONSTANTS.SERVER;
+const { CHATS, MESSAGES } = CONSTANTS.SERVER;
+
 
 class ChatPage extends Component {
     constructor(props) {
@@ -17,103 +21,108 @@ class ChatPage extends Component {
             chatShowType: "all",
             filterString: "",
             chatTyping: false,
-            messages: [
-                {
-                    messageID: 1,
-                    sentBy: "harsh",
-                    content: "yoyoyo"
-                },
-                {
-                    messageID: 2,
-                    sentBy: "bob",
-                    content: "hihihi"
-                },
-            ],
-            rooms: [
-                {
-                    id: 1,
-                    chat_name: "CS241 Fanclub",
-                    latestMessage: "hi whats, this is a really long text i like long texts, but i should make this even longer. but then what happens if its THIS long, Will this break everything? Probably not, but this will ;)",
-                    roomIcon: "CS 241",
-                    isActive: true,
-                    type: "room"
-                },
-                {
-                    id: 2,
-                    chat_name: "Nullptr Exception Gang",
-                    latestMessage: "nothing much",
-                    roomIcon: "CS 350",
-                    isActive: false,
-                    type: "room"
-                },
-                {
-                    id: 3,
-                    chat_name: "Anjali",
-                    latestMessage: "yo i am a baby",
-                    roomIcon: "Anjali",
-                    isActive: false,
-                    type: "direct"
-                }
-            ]
+            messages: [],
+            rooms: []
         };
     }
 
     componentDidMount() {
-        this.props.socket.on('chat response', (msg) => {
+        this.setupSocket();
+        this.getChats();
+    }
+
+    setupSocket() {
+        socket.on('chat response', (msg) => {
             console.log("SENT ", msg);
             this.setState({
                 messages: [
                     ...this.state.messages,
-                    // { messageID: "test", sentBy: "harsh", content: msg },
                     { messageID: "test", sentBy: "bob", content: msg }
                 ]
             });
         });
-        this.props.socket.on('chat typing', (isTyping) => {
+        socket.on('chat typing', (isTyping) => {
             console.log(isTyping);
             this.setState({
                 chatTyping: isTyping
             })
         });
-        console.log(this.props);
-        axios.get(`${CHATS}/${this.props.user_id}`).then((res) => {
+    }
+
+    getChats() {
+        ChatAPI.get_chats_by_user_id().then((res) => {
+            res.data.forEach((room) => {
+                return { ...room, isActive: false };
+            });
+            if (res.data[0]) res.data[0].isActive = true;
             this.setState({ rooms: res.data });
-        })
+        }).then(() => {
+            this.getMessagesForCurrentChat();
+        });
     }
 
     handleMessageChange = (e) => {
         this.setState({ message: e.target.value }, () => {
-            this.props.socket.emit('chat typing', this.state.message !== '');
+            socket.emit('chat typing', this.state.message !== '');
         });
     }
 
     sendMessage = (e) => {
-        console.log(this.state.message);
-        let message = this.state.message.replace("<div>", "");
-        console.log("edited", message);
+        const { message } = this.state;
+
+        // Don't send blank messages
         if (message === "") return;
-        this.props.socket.emit('chat message', message);
-        this.setState({
-            message: "",
-            messages: [
-                ...this.state.messages,
-                { messageID: 5, sentBy: "harsh", content: message }
-            ]
+
+        // Get active chat
+        let activeChatID;
+        for (let room of this.state.rooms) {
+            if (room.isActive) activeChatID = room.isActive;
+        }
+
+        // Send message to api, state, then socket
+        ChatAPI.send_message({
+            sent_by: auth.user_id,
+            sent_to: activeChatID,
+            content: message
+        }).then(() => {
+            this.setState({
+                message: "",
+                messages: [
+                    ...this.state.messages,
+                    { messageID: this.state.message.length + 1, sent_by: auth.user_id, content: message }
+                ]
+            });
+            socket.emit('chat message', message);
         });
     }
 
     renderMessages = () => {
-        console.log("render");
         return this.state.messages.map((message) => {
-            let class_name = (message.sentBy === "harsh") ? "user-message" : "server-message";
+            let class_name = (message.sent_by === auth.user_id) ? "user-message" : "server-message";
             return <div className={class_name}><span>{message.content}</span></div>
         })
+    }
+
+    setChatActive = (roomID) => {
+        for (let i = 0; i < this.state.rooms.length; i++) {
+            if (this.state.rooms[i].id === roomID) {
+                let newRooms = this.state.rooms;
+                newRooms[i].isActive = true;
+                this.setState({ rooms: newRooms }, () => {
+                    this.getMessagesForCurrentChat();
+                });
+            } else if (this.state.rooms[i].isActive) {
+                let newRooms = this.state.rooms;
+                newRooms[i].isActive = false;
+                this.setState({ rooms: newRooms });
+            }
+        }
     }
 
     renderChatRooms = () => {
         return this.state.rooms.map((room) => {
             if (((this.state.chatShowType === "direct" && room.type === "direct") || this.state.chatShowType === "all") && room.chat_name.includes(this.state.filterString)) {
-                return <div className={`chat-room${(room.isActive) ? " active" : ""}`}>
+                return <div className={`chat-room${(room.isActive) ? " active" : ""}`} onClick={() => this.setChatActive(room.id)}>
                     <div className="chat-room-icon">{room.roomIcon}</div>
                     <div className="chat-room-info">
                         <span>{room.chat_name}</span>
@@ -131,6 +140,16 @@ class ChatPage extends Component {
             e.preventDefault();
             this.sendMessage();
         }
+    }
+
+    getMessagesForCurrentChat = () => {
+        let activeChatID;
+        for (let room of this.state.rooms) {
+            if (room.isActive) activeChatID = room.id;
+        }
+        axios.get(`${MESSAGES}/${activeChatID}`).then((res) => {
+            this.setState({ messages: res.data })
+        })
     }
 
 

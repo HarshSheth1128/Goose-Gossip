@@ -218,6 +218,7 @@
     animation-name: showMessage;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    margin-bottom: 5px;
 }
 
 @keyframes showMessage {

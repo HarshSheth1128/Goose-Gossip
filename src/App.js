@@ -10,17 +10,17 @@ import {
 } from "react-router-dom";
 import CONSTANTS from './constants/constants'
 import { createBrowserHistory } from "history";
-import socketIOClient from 'socket.io-client';
-const axios = require('axios').default;
-const socket = socketIOClient(CONSTANTS.SERVER.HOSTNAME);
+import ProtectedRoute from './common/ProtectedRoute/ProtectedRoute.jsx';
+import socket from './common/socket';
+import auth from './common/auth';
 
+let axios = require('axios').default;
 
 axios.defaults.baseURL = CONSTANTS.SERVER.HOSTNAME;
 
 
 const history = createBrowserHistory();
-const { GUEST_LOGIN, USER_LOGIN, NOT_LOGGED_IN } = CONSTANTS.LOGIN_STATE;
-const { GUEST_ENTRY, LOGIN_ENTRY, SIGNUP_ENTRY } = CONSTANTS.LOGIN_TYPE;
+const { NOT_LOGGED_IN } = CONSTANTS.LOGIN_STATE;
 
 class App extends Component {
   constructor(props) {
@@ -28,9 +28,14 @@ class App extends Component {
     this.state = {
       loginState: NOT_LOGGED_IN,
       username: null,
-      user_id: null
+      user_id: null,
     };
-
+    let authObject = JSON.parse(localStorage.getItem('auth'));
+    if (authObject) {
+      auth.isLoggedIn = authObject.isLoggedIn;
+      auth.username = authObject.username;
+      auth.user_id = authObject.user_id;
+    }
   }
 
   componentDidMount() {
@@ -39,22 +44,12 @@ class App extends Component {
     });
   }
 
-  handleLogin = (LOGIN_TYPE, username, user_id) => {
-    switch (LOGIN_TYPE) {
-      case GUEST_ENTRY:
-        this.setState({ loginState: GUEST_LOGIN, username, user_id });
-        break;
-      case LOGIN_ENTRY:
-        this.setState({ loginState: USER_LOGIN, username, user_id });
-        break;
-      case SIGNUP_ENTRY:
-        this.setState({ loginState: USER_LOGIN, username, user_id });
-        break;
-      default:
-        this.setState({ loginState: NOT_LOGGED_IN, username, user_id });
-        break;
-    }
-    console.log(this.state);
+  handleLogin = (username, user_id) => {
+    auth.isLoggedIn = true;
+    auth.username = username;
+    auth.user_id = user_id;
+    localStorage.setItem('auth', JSON.stringify(auth));
+    console.log(auth);
   }
 
 
@@ -64,7 +59,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={() => <LoginPage handleLogin={this.handleLogin} />} />
           <Route exact path="/app" component={() => <HomePage loginState={this.state.loginState} />} />
-          <Route path="/app/*" component={() => <ChatPage socket={socket} {...this.state} />} />
+          <ProtectedRoute path="/app/test" state={{ ...this.state }} component={ChatPage} />
         </Switch>
       </Router >
     );
