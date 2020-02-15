@@ -14,7 +14,7 @@
     justify-content: center;
 }
 
-#gooseImage {
+#gooseImage { 
     -webkit-animation-name: centreFadeInAndDown; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
     animation-name: centreFadeInAndDown;
@@ -441,7 +441,6 @@
     to {transform: rotateX(0deg);
         transform: scaleY(1);}
 }
-
 
 @-webkit-keyframes fadeInput {
     from {}

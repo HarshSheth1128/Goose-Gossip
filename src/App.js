@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import CONSTANTS from './constants/constants'
 import { createBrowserHistory } from "history";
+import ViewPage from './pages/ViewPage/ViewPage';
 import ProtectedRoute from './common/ProtectedRoute/ProtectedRoute.jsx';
 import socket from './common/socket';
 import auth from './common/auth';
@@ -21,6 +22,7 @@ axios.defaults.baseURL = CONSTANTS.SERVER.HOSTNAME;
 
 const history = createBrowserHistory();
 const { NOT_LOGGED_IN } = CONSTANTS.LOGIN_STATE;
+
 
 class App extends Component {
   constructor(props) {
@@ -60,6 +62,8 @@ class App extends Component {
           <Route exact path="/" component={() => <LoginPage handleLogin={this.handleLogin} />} />
           <Route exact path="/app" component={() => <HomePage loginState={this.state.loginState} />} />
           <ProtectedRoute path="/app/test" state={{ ...this.state }} component={ChatPage} />
+          <Route path="/app/categories" component={() => <ViewPage loginState={this.state.loginState} />} />
+          <Route path="/app/chats" component={() => <ViewPage loginState={this.state.loginState} />} />
         </Switch>
       </Router >
     );

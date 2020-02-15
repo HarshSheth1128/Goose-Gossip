@@ -1,5 +1,126 @@
-.HomePageRoot {
-    background-color: red;
-    height: 100%;
+.HomeScreenRoot {
+    position: absolute;
     width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    top:0;
+    margin: 0;
 }
+
+.HomeScreenRootContentWrapper {
+    position: relative;
+    flex-grow: 1;
+    margin-top: 2.4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.SearchBarContainer {
+    width:100%;
+}
+
+.TopRowContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 4vw 0 4vw;
+ }
+
+ .Headings {
+    position: relative;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+    color: #000000;
+ }
+
+ .ListWrapper{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    width: 100%;
+    padding: 10px 0;
+    border: 0;
+    height: 150px;
+    -webkit-animation-name: listFadeIn; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: listFadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+ @-webkit-keyframes listFadeIn{
+   from {transform: translateX(-15px);opacity: 0;}
+   to { opacity: 1;}
+ }
+ 
+@keyframes listFadeIn {
+   from {transform: translateX(-15px); opacity: 0;}
+   to {opacity: 1;}
+}
+
+ ::-webkit-scrollbar {
+   width: 0px;  /* Remove scrollbar space */
+   background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+ .ChatRoomWrapper {
+    margin-right: 10px;
+    display: flex;
+ }
+
+ .ChatRoomWrapper:hover {
+   display:none
+}
+
+ .LinkContainer{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    padding: 0;
+ }
+
+ .LinkContainer2{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    padding: 0;
+    padding-right: 4vw;
+ }
+
+ #ViewAllLink{
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 23px;
+    text-align: center;
+    color: #2191FB;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.5s ease-out;
+}
+
+#ViewAllLink:hover{
+    color: red;
+    transition: 0.15s ease-in;
+}
+
+.BottomContentContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0vw 0 4vw;
+ }
+
+ .CategoriesContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-animation-name: listFadeIn; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: listFadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+ }

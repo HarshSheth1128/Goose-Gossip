@@ -1,0 +1,103 @@
+.MenuBarRoot {
+    background: #fcd64f;
+    position: fixed;
+    flex-direction: row;
+    width: 100%;
+    height: 2.4rem;
+    top:0;
+    transition: 0.2s;
+    z-index: 2;
+}
+
+.MenuBarRootHide {
+    background: #fcd64f;
+    position: fixed;
+    flex-direction: row;
+    width: 100%;
+    top:0;
+    height: 0px;
+    bottom: 0;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.MenuBarContentWrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0.1rem 0.8rem;
+    transition: 0.3s;
+}
+
+.MenuBarContentWrapperHide {
+    display: none;
+}
+
+.MenuBarNavigation a {
+    color: #4f4f4f;
+    font-size: 1rem;
+    font-family: "IBM Plex Sans";
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;   
+}
+
+.MenuBarNavigation a:hover {
+    color:black;
+    text-shadow: 0px -2px 0px rgba(255,255,255,0.8), 0 0 5px rgba(255,255,255,0.8), 0 -4px 15px rgba(255,255,255,0.8);
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.MenuBarNavigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.MenuBarNavigation li {
+    padding: 0 0 0 1rem;
+}
+
+.GooseImage {
+    padding: 0;
+    height: 1.5rem;
+    width: 3rem;
+}
+
+.MenuBarNavigation img {
+    height: 1.4rem;
+    width: 1.5rem; 
+    fill: #c4c4c4;
+}
+
+.MenuBarNavigation img:hover {
+    box-shadow: 0px -2px 0px rgba(255,255,255,0.8), 0 0 5px rgba(255,255,255,0.8), 0 -4px 15px rgba(255,255,255,0.8);
+    cursor: pointer;
+}
+
+.Spacer {
+    flex: 1;
+}
+
+.BoardIcon {
+    padding-top: 2px;
+}
+
+.VerticalSeperator {
+    border:  1px solid #c4c4c4;
+    height: 1rem;
+}
+
+@media only screen and (max-width: 425px) {
+    /* Mobile */
+    .MenuBarNavigation a,
+    .VerticalSeperator,
+    .BoardIcon
+    {
+        display: none;
+    }
+    
+}
