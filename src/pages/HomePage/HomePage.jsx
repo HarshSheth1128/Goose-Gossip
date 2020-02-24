@@ -6,6 +6,7 @@ import MenuBar from '../../common/MenuBar/MenuBar';
 import CategoryButton from '../../common/Buttons/CategoryButton';
 import ChatRoomButton from '../../common/Buttons/ChatRoomButton';
 import SearchBar from '../../common/SearchBar/SearchBar';
+import ChatAPI from '../../api/Chats';
 import {
     BrowserRouter as Router,
     Switch,
@@ -63,6 +64,7 @@ class HomePage extends Component {
     }
 
     render() {
+
         return (
             <>
                 <div className="HomeScreenRoot">

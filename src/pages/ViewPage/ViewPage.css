@@ -42,6 +42,28 @@
     animation-fill-mode: forwards;
 }
 
+.SortedListHolder {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    -webkit-animation-name: sortedListFadeIn; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: sortedListFadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes sortedListFadeIn{
+    from {transform: translateY(15px);opacity: 0;}
+    to { opacity: 1;}
+  }
+  
+ @keyframes sortedListFadeIn {
+    from {transform: translateY(15px); opacity: 0;}
+    to {opacity: 1;}
+ }
+
 @-webkit-keyframes viewListFadeIn{
     from {transform: translateY(-15px);opacity: 0;}
     to { opacity: 1;}

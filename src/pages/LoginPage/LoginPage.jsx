@@ -56,7 +56,7 @@ class LoginPage extends Component {
                         res.data.id
                     );
                 })
-                .then(this.props.history.push('/app/test'))
+                .then(this.props.history.push('/app'))
                 .catch(this.setState({ loginFail: true }));
         } else {
             const User = (entryVersion === GUEST_ENTRY) ? null : { username, password }
@@ -67,7 +67,7 @@ class LoginPage extends Component {
                         res.data.id
                     );
                 })
-                .then(this.props.history.push('/app/test'))
+                .then(this.props.history.push('/app'))
                 .catch(this.setState({ loginFail: true }));
         }
     }

@@ -5,6 +5,7 @@ module.exports = {
         REGISTER: "/register",
         MESSAGES: "/messages",
         CHATS: "/chats",
+        CATEGORIES: "/categories",
         HOMEPAGE: "/homepage"
     },
     LOGIN_STATE: {

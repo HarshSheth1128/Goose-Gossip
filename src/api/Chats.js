@@ -12,5 +12,11 @@ export default {
     },
     get_messages_for_chat: (activeChatID) => {
         return axios.get(`${MESSAGES}/${activeChatID}`);
+    },
+    get_all_chats: () => {
+        return axios.get(`${CHATS}/`);
+    },
+    get_chat_members: (chatID) => {
+        return axios.get(`${CHATS}/members/${chatID}`);
     }
 }
